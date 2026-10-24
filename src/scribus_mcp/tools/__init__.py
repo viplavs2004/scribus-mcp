@@ -21,6 +21,7 @@ from scribus_mcp.tools import (
     pages,
     patterns,
     search,
+    selection,
     shapes,
     styles,
     styling,
@@ -54,6 +55,7 @@ def register_all(mcp, ctx) -> None:
     templates.register(mcp, ctx)
     hindi.register(mcp, ctx)
     verify.register(mcp, ctx)
+    selection.register(mcp, ctx)
 
 
 # Compact tool set for small models / ad and flyer work: ``SCRIBUS_MCP_TOOLSET=ads`` keeps only
@@ -64,6 +66,8 @@ ADS_TOOLSET: tuple[str, ...] = (
     "list_templates", "new_from_template", "create_document", "open_document",
     "save_document", "save_document_as", "close_document", "get_document_info", "add_page",
     "goto_page", "get_page_size", "set_page_margins",
+    # what the user points at (interactive only): get_selection FIRST for this/that/selected
+    "get_selection", "format_selected_text", "set_selection_colors",
     # composed building blocks
     "create_text_box", "create_badge", "create_bullet_list", "create_label_bar",
     "create_decor_shape", "fit_text_to_frame",

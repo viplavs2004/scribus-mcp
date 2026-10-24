@@ -70,6 +70,20 @@ highest-level tool that fits the shape of your content.** Examples:
 Primitives are for composition glue (decorative shapes, page chrome,
 filling gaps the patterns don't cover yet).
 
+## Pointing words (this / that / selected / here): call `get_selection` first
+
+If the user refers to something by pointing, never guess which object or text they mean. Call
+`get_selection` (interactive mode, read-only). It returns the page, the selected objects (name, type,
+bbox in mm, fill/line colour, font, text preview) and, for one selected text frame, the highlighted range
+(`selection_start`, `selection_length`, `selected_text`), the paragraph/word around it and the formatting.
+Then act: `format_selected_text(color|font|size_pt)` restyles only the highlighted words (or the whole
+frame when nothing is highlighted), `set_selection_colors(fill|line)` recolours the selected objects,
+and the usual name-based tools (`move_object`, `resize_object`, `set_text`, ...) take the returned names.
+In headless mode there is no selection and the tool says so. Text-edit mode and cursor position are only
+reported by a Scribus built with `scripter-selection.patch`; without it `editing`/`cursor` are null and
+only a highlighted range is detectable. Note: the Scripter's own `setTextColor/setFont/setFontSize` act on
+a frame's highlight if one exists, else on all text.
+
 ## Coordinates are millimetres, top-left origin
 
 Every `_mm` parameter is millimetres. `x_mm` / `y_mm` is the **top-left**
