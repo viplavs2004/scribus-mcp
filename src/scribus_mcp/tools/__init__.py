@@ -3,12 +3,16 @@ attaches its tools to the FastMCP server."""
 
 from scribus_mcp.tools import (
     ad_boxes,
+    arrange,
+    templates,
+    decor,
     colors,
     document,
     escape,
     export,
     fonts,
     forms,
+    hindi,
     frames,
     images,
     layers,
@@ -21,6 +25,7 @@ from scribus_mcp.tools import (
     styles,
     styling,
     text,
+    verify,
 )
 
 
@@ -44,3 +49,8 @@ def register_all(mcp, ctx) -> None:
     forms.register(mcp, ctx)
     escape.register(mcp, ctx)
     ad_boxes.register(mcp, ctx)
+    decor.register(mcp, ctx)
+    arrange.register(mcp, ctx)
+    templates.register(mcp, ctx)
+    hindi.register(mcp, ctx)
+    verify.register(mcp, ctx)
