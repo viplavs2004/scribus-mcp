@@ -73,6 +73,7 @@ _value = {{'path': {path!r}, 'pages_exported': len(_pdf.pages)}}
         mode: Mode = "auto",
     ) -> list[TextContent | ImageContent]:
         """Render a page to a PNG and return it inline so Claude can see the layout.
+        (``render_preview`` is the preferred variant.)
 
         page_number=0 means the current page. The image is downscaled so
         max(width, height) <= max_pixels to keep responses small.
@@ -94,7 +95,9 @@ _export.scale = 100
 _export.transparentBkgnd = 0
 _export.quality = 100
 _export.saveAs({str(out_path)!r})
-_value = {str(out_path)!r}
+_pw, _ph = _s.getPageSize()
+_k = 72.0 / 25.4 if _s.getUnit() == 1 else 1.0
+_value = [{str(out_path)!r}, _pw * _k, _ph * _k]
 """
         backend = await get_backend(ctx, mode)
         result = await backend.script(body, result_expr="_value")
@@ -102,6 +105,7 @@ _value = {str(out_path)!r}
             return [TextContent(type="text", text=f"Render failed: {result.error}")]
 
         png_path = Path(out_path)
+        page_pt = result.value[1:3] if isinstance(result.value, list) and len(result.value) == 3 else None
         if not png_path.exists():
             return [TextContent(type="text", text=f"Render failed: {out_path} not produced")]
 
@@ -109,6 +113,9 @@ _value = {str(out_path)!r}
             from PIL import Image
 
             img = Image.open(png_path)
+            if page_pt:
+                # ImageExport renders into the top-left of an oversized canvas: crop to the page.
+                img = img.crop((0, 0, round(page_pt[0] / 72 * dpi), round(page_pt[1] / 72 * dpi)))
             w, h = img.size
             biggest = max(w, h)
             if biggest > max_pixels:

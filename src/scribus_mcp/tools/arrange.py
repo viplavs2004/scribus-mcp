@@ -26,9 +26,8 @@ def register(mcp, ctx: ServerCtx) -> None:
         body = f"""
 import scribus as _s
 _names = {names!r}
-_u = _s.pointsToDocUnit(1.0)
+_u = 1.0  # everything in document units (mm)
 _pw, _ph = _s.getPageSize()
-_pw, _ph = _pw * _u, _ph * _u
 _boxes = {{n: _s.getBoundingBox(n) for n in _names}}
 _to = {to!r}
 if _to == 'page':

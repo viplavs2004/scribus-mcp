@@ -147,7 +147,7 @@ def register(mcp, ctx: ServerCtx) -> None:
         body = f"""
 import scribus as _s
 _s.openDoc({str(dst)!r})
-_u = _s.pointsToDocUnit(1.0)
+_u = 25.4 / 72.0 / _s.pointsToDocUnit(1.0)
 _pw, _ph = _s.getPageSize()
 _frames = []
 for _p in range(1, _s.pageCount() + 1):
@@ -158,8 +158,8 @@ for _p in range(1, _s.pageCount() + 1):
             _x, _y = _s.getPosition(_n)
             _w, _h = _s.getSize(_n)
             _t = _s.getAllText(_n)
-            _frames.append({{'name': _n, 'page': _p, 'x_mm': round(_x, 1), 'y_mm': round(_y, 1),
-                            'w_mm': round(_w, 1), 'h_mm': round(_h, 1), 'chars': len(_t),
+            _frames.append({{'name': _n, 'page': _p, 'x_mm': round(_x * _u, 1), 'y_mm': round(_y * _u, 1),
+                            'w_mm': round(_w * _u, 1), 'h_mm': round(_h * _u, 1), 'chars': len(_t),
                             'text': _t[:80]}})
 _value = {{'pages': _s.pageCount(), 'page_w_mm': round(_pw * _u, 1), 'page_h_mm': round(_ph * _u, 1),
           'text_frames': _frames}}

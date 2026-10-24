@@ -29,7 +29,7 @@ import re as _re
 _findings = []
 _fonts_used = {}
 _installed = set(_s.getFontNames())
-_unit = _s.pointsToDocUnit(1.0)
+_unit = 25.4 / 72.0 / _s.pointsToDocUnit(1.0)  # doc units -> mm
 _text_boxes = []
 _groups = 0
 _objects = 0
@@ -59,7 +59,7 @@ for _pg in range(1, _pages + 1):
         _objects += 1
         try:
             _bb = _s.getBoundingBox(_n)
-            _x, _y, _w, _h = _bb
+            _x, _y, _w, _h = [_v * _unit for _v in _bb]
         except Exception:
             continue
         if _t == 12:
@@ -160,7 +160,8 @@ for _pg in range(1, _pages + 1):
                 _ov = 0
             if _ov:
                 _add('error', 'text_overflow', _last, _pg, 'Text overflows the frame%s: the end of the text is cut off.' % (' chain ending here' if _last != _n else ''))
-        _text_boxes.append((_n, _pg, _x, _y, _w, _h))
+        if _text.strip():
+            _text_boxes.append((_n, _pg, _x, _y, _w, _h))
 
 # overlaps between text frames with text
 for _a in range(len(_text_boxes)):
