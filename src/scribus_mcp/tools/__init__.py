@@ -2,6 +2,7 @@
 attaches its tools to the FastMCP server."""
 
 from scribus_mcp.tools import (
+    ad_boxes,
     colors,
     document,
     escape,
@@ -42,3 +43,4 @@ def register_all(mcp, ctx) -> None:
     layouts.register(mcp, ctx)
     forms.register(mcp, ctx)
     escape.register(mcp, ctx)
+    ad_boxes.register(mcp, ctx)
