@@ -121,10 +121,20 @@ def register(mcp, ctx: ServerCtx) -> None:
 
     @mcp.tool()
     async def set_corner_radius(name: str, radius_pt: float, mode: Mode = "auto") -> dict:
-        """Corner radius for rectangles, in points. Scribus stores it as int,
-        so fractional values are rounded. 0 = sharp corners."""
+        """Corner radius for rectangles and text frames. Scribus stores an int in document
+        units (mm); the visible radius is about half the value, and values above ~1.4x the
+        short side make a pill. 0 = sharp corners. (For a banner with text prefer
+        ``create_text_box``.) Any selection is cleared first: Scribus applies the rounding to
+        the current selection too, which used to turn a previously imported shape into a
+        square."""
         backend = await get_backend(ctx, mode)
-        result = await backend.call("setCornerRadius", round(radius_pt), name)
+        body = "\n".join([
+            "import scribus as _s",
+            "_s.deselectAll()",
+            f"_s.setCornerRadius({int(round(radius_pt))}, {name!r})",
+            "_value = True",
+        ])
+        result = await backend.script(body, result_expr="_value")
         return {"ok": result.ok, "value": result.unwrap_or(), "error": result.error}
 
     @mcp.tool()

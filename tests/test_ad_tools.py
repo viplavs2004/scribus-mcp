@@ -257,3 +257,14 @@ class TestLiveHeadless:
         assert res.value["over"] is False
         assert res.value["lines"] == 1
         assert res.value["scale"] < 1.0  # 40 pt does not fit 80 mm on one line: it shrank
+
+
+def test_corner_radius_clears_selection_first():
+    """Regression: Scribus's setCornerRadius also rounds the current selection, which turned a
+    freshly imported star into a square. The helpers must deselect before rounding."""
+    import inspect
+
+    from scribus_mcp.tools import styling
+
+    assert AD_LIB.index("__s.deselectAll()") < AD_LIB.index("__s.setCornerRadius(")
+    assert "deselectAll" in inspect.getsource(styling)

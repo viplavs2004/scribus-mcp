@@ -212,6 +212,9 @@ def _ad_corner(_f, _radius_mm, _w, _h, _pill):
     _cap = 1.4 * min(_w, _h)
     _v = _cap if _pill else min(_cap, float(_radius_mm) * 2.0)
     if _v > 0:
+        # setCornerRadius also rounds the CURRENT SELECTION (e.g. a shape imported just before),
+        # turning it into a square: clear the selection first.
+        __s.deselectAll()
         __s.setCornerRadius(int(round(_v)), _f)
 
 def _ad_box(_sp):

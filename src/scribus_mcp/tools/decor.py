@@ -52,6 +52,10 @@ SHAPE_PATHS: dict[str, str] = {
 _PLACE_LIB = r'''
 def _ad_import_svg(_path, _x, _y, _w, _h, _fill, _line, _line_w, _name):
     import scribus as __s
+    try:
+        __s.deselectAll()
+    except Exception:
+        pass
     _before = set(__s.getAllObjects())
     __s.placeSVG(_path, _x, _y)
     _new = [n for n in __s.getAllObjects() if n not in _before]
@@ -60,6 +64,10 @@ def _ad_import_svg(_path, _x, _y, _w, _h, _fill, _line, _line_w, _name):
     _o = _new[0]
     if len(_new) > 1 or __s.getObjectType(_o) == 'Group':
         raise RuntimeError('SVG import produced a group; use a single path')
+    try:
+        __s.setTextFlowMode(_o, 0)  # imported shapes default to pushing text away
+    except Exception:
+        pass
     __s.sizeObject(_w, _h, _o)
     __s.moveObjectAbs(_x, _y, _o)
     if _fill:
@@ -72,6 +80,10 @@ def _ad_import_svg(_path, _x, _y, _w, _h, _fill, _line, _line_w, _name):
     if _name:
         __s.setItemName(_name, _o)
         _o = _name
+    try:
+        __s.deselectAll()
+    except Exception:
+        pass
     return _o
 
 def _ad_rotate_about(_o, _cx, _cy, _deg):
