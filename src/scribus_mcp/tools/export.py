@@ -26,7 +26,9 @@ def register(mcp, ctx: ServerCtx) -> None:
 
         pages='all' or a comma list like '1,3,5-7'. version: 1.4 | 1.5 | X-1a | X-3 | X-4.
         """
-        version_map = {"1.4": 13, "1.5": 14, "X-1a": 11, "X-3": 12, "X-4": 15}
+        # Scribus PDFfile.version: 10 = PDF/X-4, 11 = PDF/X-1a, 12 = PDF/X-3,
+        # 13 = PDF 1.3, 14 = PDF 1.4, 15 = PDF 1.5. (X-4 used to be mapped to 15 = plain 1.5.)
+        version_map = {"1.4": 14, "1.5": 15, "X-1a": 11, "X-3": 12, "X-4": 10}
         body = f"""\
 import scribus as _s
 _pdf = _s.PDFfile()
@@ -34,6 +36,10 @@ _pdf.file = {path!r}
 _pdf.compress = {1 if compress else 0}
 _pdf.compressmtd = 0
 _pdf.version = {version_map[version]}
+try:
+    _pdf.info = _s.getDocName() or 'Document'
+except Exception:
+    pass
 _pdf.resolution = {resolution}
 _pdf.bleedt = {bleed_mm}
 _pdf.bleedb = {bleed_mm}
