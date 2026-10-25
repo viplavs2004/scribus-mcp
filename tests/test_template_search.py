@@ -67,7 +67,7 @@ def top(lib: Path, q: str, n: int = 5, **kw) -> list[str]:
 RANK_CASES = [
     ("school admission ad, 4 columns by 12 cm, Hindi", {"news_disp_school_5x20", "news_school_admission_flyer"}),
     ("jewellery sale ad half page colour", {"news_disp_jewellery_half_horizontal"}),
-    ("court notice single column black and white", {"news_court_column"}),
+    ("court notice single column black and white", {"news_court_notice_3x10"}),
     ("Diwali greetings ad", {"news_disp_diwali_5x15"}),
     ("property plot launch display ad", {"news_disp_plots_half_vertical"}),
     ("classified job vacancy", {"news_disp_vacancy_bw_3x10"}),
