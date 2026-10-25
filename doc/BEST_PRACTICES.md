@@ -9,8 +9,15 @@ agent driving the MCP fetches that prompt, it gets this file verbatim.
 
 ## Ads, flyers, posters (and Indian newspaper ads): the 8 rules
 
-1. **Start from a template.** `list_templates` (filter by `query` / `category`), then
-   `new_from_template(template, save_as)`. Only when nothing fits use `create_document`
+1. **Start from a template.** Flow: user describes the need -> `find_templates` (ranked
+   shortlist with a numbered contact sheet and previews; show them to the USER and ask which
+   one, never pick silently; if it says "nothing close", say so) -> `new_from_template(template,
+   save_as)` (returns `editable_fields`: object name, role, current text, char budget, logo and
+   photo slots) -> ask the user for the missing details (business name, offer, dates, phone,
+   address, logo file) -> `fill_template_fields({name or role: text})` (Hindi as Unicode;
+   shrink-to-fit with a 5 pt floor; `logo_path` fills the logo slot) -> `verify_document` ->
+   `render_preview` (look at it) -> `export_press_pdf`. `list_templates` (filter by `query` /
+   `category`) browses the library by text. Only when nothing fits use `create_document`
    (set all margins to 0 for a full-bleed flyer). `suggest_fonts` lists the installed fonts
    by role (condensed display, bold headline, slogan italic, Devanagari, Kruti Dev).
 2. **One visual element = one tool call.** A banner, button, price tag, phone bar or title is

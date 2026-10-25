@@ -1,0 +1,1608 @@
+{
+"Lulu_and_Createspace_6x9_paper_book": {
+"pages": 23,
+"w_mm": 152.4,
+"h_mm": 228.6,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Liberation Serif Bold",
+"Liberation Serif Italic",
+"Liberation Serif Regular",
+"Unna Regular"
+],
+"text": "The Book Title Author Name The Book Title Perhaps a subtitle or Volume The  Book",
+"indexed": true
+},
+"nl1": {
+"pages": 4,
+"w_mm": 210.0,
+"h_mm": 297.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"DARKSEAGREEN3"
+],
+"fonts": [
+"Arial Regular",
+"Bitstream Vera Sans Bold",
+"Bitstream Vera Sans Oblique",
+"Bitstream Vera Sans Roman",
+"Bitstream Vera Serif Roman",
+"URW Palladio L Roman"
+],
+"text": "Page  Newsletter Header Page  Issue 1 Newsletter Header Company/Author 29.4.2004",
+"indexed": true
+},
+"nl2": {
+"pages": 4,
+"w_mm": 210.0,
+"h_mm": 297.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Bitstream Vera Sans Bold",
+"Bitstream Vera Sans Mono Roman",
+"Bitstream Vera Sans Oblique",
+"Bitstream Vera Sans Roman",
+"Bitstream Vera Serif Bold",
+"Bitstream Vera Serif Roman"
+],
+"text": "Newsletter Header Issue 1 Page  Page  Newsletter Title Company's Weekly Newslett",
+"indexed": true
+},
+"br1": {
+"pages": 2,
+"w_mm": 297.0,
+"h_mm": 210.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"DARKOLIVEGREEN3"
+],
+"fonts": [
+"Arial Black",
+"Arial Regular",
+"Bitstream Vera Sans Bold",
+"URW Bookman L Demi Bold Italic"
+],
+"text": "Address Line 1 Address Line 2 Address Line 3 Tel: 123-123-12345 Email: company@c",
+"indexed": true
+},
+"textbased": {
+"pages": 2,
+"w_mm": 209.9,
+"h_mm": 297.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GREEN_SHADOW"
+],
+"fonts": [
+"Arial Regular",
+"Bitstream Charter Bold Italic",
+"Bitstream Vera Sans Mono Roman",
+"Bitstream Vera Sans Roman"
+],
+"text": "A text based Newsletter Pilot article title Lorem ipsum dolor sit amet, consecte",
+"indexed": true
+},
+"pres_backgr_1": {
+"pages": 1,
+"w_mm": 297.0,
+"h_mm": 223.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"pres_backgr_2": {
+"pages": 1,
+"w_mm": 297.0,
+"h_mm": 223.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"pres_backgr_3": {
+"pages": 1,
+"w_mm": 297.0,
+"h_mm": 223.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"pres_backgr_4": {
+"pages": 1,
+"w_mm": 297.0,
+"h_mm": 223.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"cc": {
+"pages": 1,
+"w_mm": 371.1,
+"h_mm": 262.5,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"mc": {
+"pages": 1,
+"w_mm": 431.8,
+"h_mm": 279.4,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Nimbus Sans L Regular",
+"URW Chancery L Medium Italic"
+],
+"text": "Lorem Ipsum Lorem Ipsum Dolor lorem ipsum dolor sit amet, consectetuer elit 4.90",
+"indexed": true
+},
+"cover1": {
+"pages": 1,
+"w_mm": 210.0,
+"h_mm": 297.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Nimbus Sans L Regular"
+],
+"text": "SAMPLE TEXT Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut a sapie",
+"indexed": true
+},
+"cover2": {
+"pages": 1,
+"w_mm": 210.0,
+"h_mm": 297.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Nimbus Sans L Regular"
+],
+"text": "SAMPLE TEXT Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut a sapie",
+"indexed": true
+},
+"cover3": {
+"pages": 1,
+"w_mm": 210.0,
+"h_mm": 297.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Nimbus Sans L Regular"
+],
+"text": "SAMPLE TEXT Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut a sapie",
+"indexed": true
+},
+"cover4": {
+"pages": 1,
+"w_mm": 210.0,
+"h_mm": 297.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Nimbus Sans L Regular"
+],
+"text": "SAMPLE TEXT Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut a sapie",
+"indexed": true
+},
+"cover5": {
+"pages": 1,
+"w_mm": 210.0,
+"h_mm": 297.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Nimbus Sans L Regular"
+],
+"text": "SAMPLE TEXT Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut a sapie",
+"indexed": true
+},
+"grid_br_a4_l": {
+"pages": 1,
+"w_mm": 594.1,
+"h_mm": 210.3,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_a4_p": {
+"pages": 1,
+"w_mm": 420.2,
+"h_mm": 297.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_975x85in_l": {
+"pages": 1,
+"w_mm": 495.3,
+"h_mm": 215.9,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_975x85_p": {
+"pages": 1,
+"w_mm": 431.8,
+"h_mm": 247.6,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_375x85_p": {
+"pages": 1,
+"w_mm": 190.5,
+"h_mm": 216.3,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_375x85_l": {
+"pages": 1,
+"w_mm": 431.8,
+"h_mm": 95.2,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_100x210_p": {
+"pages": 1,
+"w_mm": 200.0,
+"h_mm": 210.3,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_100x210_l": {
+"pages": 1,
+"w_mm": 420.2,
+"h_mm": 100.2,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_55x86in_p": {
+"pages": 1,
+"w_mm": 279.4,
+"h_mm": 216.3,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_55x85in_l": {
+"pages": 1,
+"w_mm": 431.8,
+"h_mm": 139.7,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_poster_a3": {
+"pages": 1,
+"w_mm": 297.0,
+"h_mm": 420.2,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_poster_a2": {
+"pages": 1,
+"w_mm": 420.2,
+"h_mm": 594.1,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_poster_a1": {
+"pages": 1,
+"w_mm": 594.1,
+"h_mm": 841.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_poster_a0": {
+"pages": 1,
+"w_mm": 841.0,
+"h_mm": 1189.2,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_usl_p": {
+"pages": 1,
+"w_mm": 431.8,
+"h_mm": 279.4,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_usl_l": {
+"pages": 1,
+"w_mm": 558.8,
+"h_mm": 215.9,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_dinl_p": {
+"pages": 1,
+"w_mm": 210.3,
+"h_mm": 210.3,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_dinl_l": {
+"pages": 1,
+"w_mm": 420.2,
+"h_mm": 105.1,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_a5_p": {
+"pages": 1,
+"w_mm": 296.3,
+"h_mm": 210.3,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"grid_br_a5_l": {
+"pages": 1,
+"w_mm": 420.2,
+"h_mm": 148.2,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"GRID BLUE",
+"GRID GREEN",
+"GRID RED"
+],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"buscard_coll": {
+"pages": 1,
+"w_mm": 506.6,
+"h_mm": 602.9,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular"
+],
+"text": "",
+"indexed": true
+},
+"buscard1": {
+"pages": 1,
+"w_mm": 88.9,
+"h_mm": 50.8,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Bitstream Vera Sans Bold",
+"Bitstream Vera Sans Roman"
+],
+"text": "John Logan Manager Company Logo",
+"indexed": true
+},
+"buscard2": {
+"pages": 1,
+"w_mm": 88.9,
+"h_mm": 50.8,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Bitstream Vera Sans Roman"
+],
+"text": "John Logan General Manager johnlogan@mail.com Phone: 536528912 Fax: 52354565898 ",
+"indexed": true
+},
+"buscard3": {
+"pages": 1,
+"w_mm": 88.9,
+"h_mm": 50.8,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Bitstream Vera Sans Bold",
+"Bitstream Vera Sans Roman"
+],
+"text": "Manager John Logan Company Logo",
+"indexed": true
+},
+"buscard4": {
+"pages": 1,
+"w_mm": 89.3,
+"h_mm": 51.2,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Bitstream Vera Sans Roman"
+],
+"text": "John Logan General Manager",
+"indexed": true
+},
+"buscard5": {
+"pages": 1,
+"w_mm": 88.9,
+"h_mm": 50.8,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Bitstream Vera Sans Roman"
+],
+"text": "John Logan General Manager johnlogan@mail.com Phone: 536528912 Fax: 52354565898 ",
+"indexed": true
+},
+"buscard6": {
+"pages": 1,
+"w_mm": 88.9,
+"h_mm": 50.8,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Bitstream Vera Sans Bold",
+"Bitstream Vera Sans Roman"
+],
+"text": "John Smith General Manager Company logo  here 101st Street, New York, NY www.com",
+"indexed": true
+},
+"buscard7": {
+"pages": 1,
+"w_mm": 88.9,
+"h_mm": 50.8,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Bitstream Vera Sans Bold",
+"Bitstream Vera Sans Roman"
+],
+"text": "Company logo  here 101st Street, New York, NY John Smith General Manager www.com",
+"indexed": true
+},
+"buscard8": {
+"pages": 1,
+"w_mm": 88.9,
+"h_mm": 50.8,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Bitstream Vera Sans Bold",
+"Bitstream Vera Sans Roman"
+],
+"text": "Company logo  here 101st Street, New York, NY John Smith General Manager www.com",
+"indexed": true
+},
+"buscard9": {
+"pages": 1,
+"w_mm": 88.9,
+"h_mm": 50.8,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Bitstream Vera Sans Bold",
+"Bitstream Vera Sans Roman"
+],
+"text": "Company logo 101st Street, New York, NY John Smith General Manager www.company.c",
+"indexed": true
+},
+"buscard10": {
+"pages": 1,
+"w_mm": 88.9,
+"h_mm": 50.8,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Bitstream Vera Sans Bold",
+"Bitstream Vera Sans Roman"
+],
+"text": "John Smith General Manager www.mysite.com email@email.com Tel: 036545594556",
+"indexed": true
+},
+"buscard11": {
+"pages": 1,
+"w_mm": 88.9,
+"h_mm": 50.8,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Bitstream Vera Sans Roman"
+],
+"text": "John Logan Graphics Designer johnlogan@mail.com",
+"indexed": true
+},
+"news_gn_notice": {
+"pages": 1,
+"w_mm": 68.0,
+"h_mm": 65.0,
+"kruti": true,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Kruti Dev 010 Regular",
+"Times New Roman Regular"
+],
+"text": "xzsVj ukS,Mk vkS|ksfxd fodkl çkfèkdj.k Hkw[k.M la[;k&amp;1] lSDVj ds0ih0&amp;4 x",
+"indexed": true
+},
+"news_court_column": {
+"pages": 1,
+"w_mm": 35.0,
+"h_mm": 105.0,
+"kruti": true,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Kruti Dev 010 Regular"
+],
+"text": "U;k;ky; vijftykfèkdkjh ¼foÙk@jktLo½ xkSrecq)uxj çoh.k xqIrk cuke ds'ko caly voxr",
+"indexed": true
+},
+"ad_sixth_bw": {
+"pages": 1,
+"w_mm": 105.0,
+"h_mm": 50.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Bold",
+"Arial Bold Italic",
+"Arial Regular"
+],
+"text": "COMPANY We Have What It takes List • Here • What • You • Sell Companystreet 57 C",
+"indexed": true
+},
+"ad_a6_bw": {
+"pages": 1,
+"w_mm": 105.0,
+"h_mm": 149.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Courier New Bold Italic"
+],
+"text": "small Company We Build Hills Hill builders John Anonymous  Jane Anonymous Phone ",
+"indexed": true
+},
+"ad_chairs_bw": {
+"pages": 1,
+"w_mm": 105.0,
+"h_mm": 50.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Times New Roman Bold"
+],
+"text": "Chairs for All Your Needs Quality Chairs Co Phone 123-123-12345 Fax 321-321-5432",
+"indexed": true
+},
+"ad_company_bw": {
+"pages": 1,
+"w_mm": 185.0,
+"h_mm": 128.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Times New Roman Regular"
+],
+"text": "COMPANY www. .com Have here some catch phrase or your company introduction • Int",
+"indexed": true
+},
+"poster_garage_sale": {
+"pages": 1,
+"w_mm": 210.0,
+"h_mm": 297.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Times New Roman Bold"
+],
+"text": "Garage Sale Date: 00.00.0000 Time: 00:00 Put your address here Tell here about t",
+"indexed": true
+},
+"flyer_pizza_menu": {
+"pages": 2,
+"w_mm": 210.0,
+"h_mm": 297.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"BLUE",
+"BLUE1",
+"RED1",
+"RED2",
+"YELLOW1"
+],
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Times New Roman Bold",
+"Times New Roman Regular"
+],
+"text": "SPECIAL OFFERS www.mypizzahouse.com PIZZA PIZZA HOUSE PIZZAS reg. lg. 1. Pizza 1",
+"indexed": true
+},
+"menu_takeout_color": {
+"pages": 2,
+"w_mm": 297.0,
+"h_mm": 210.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Times New Roman Bold",
+"Times New Roman Bold Italic",
+"Times New Roman Italic",
+"Times New Roman Regular"
+],
+"text": "Monday-Thursday 00−00 Friday-Sunday 00−00 Order by Phone: 123-123-12345 Fax: 321",
+"indexed": true
+},
+"menu_takeout_bw": {
+"pages": 2,
+"w_mm": 297.0,
+"h_mm": 210.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Regular",
+"Times New Roman Bold",
+"Times New Roman Bold Italic",
+"Times New Roman Italic",
+"Times New Roman Regular"
+],
+"text": "Monday-Thursday 00−00 Friday-Sunday 00−00 Order by Phone: 123-123-12345 Fax: 321",
+"indexed": true
+},
+"brochure_nightlife": {
+"pages": 2,
+"w_mm": 297.0,
+"h_mm": 210.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Times New Roman Bold",
+"Times New Roman Regular"
+],
+"text": "Nightlife In San Daniel Welcome back next year San Daniel Cultur Department San ",
+"indexed": true
+},
+"newsletter_bw_a4": {
+"pages": 4,
+"w_mm": 210.0,
+"h_mm": 297.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"DARKSEAGREEN4"
+],
+"fonts": [
+"Arial Bold",
+"Arial Italic",
+"Arial Regular",
+"Times New Roman Regular"
+],
+"text": "Page  Newsletter Header Page  Issue 1 Newsletter Header Company/Author 29.4.2004",
+"indexed": true
+},
+"program_theatre": {
+"pages": 4,
+"w_mm": 149.0,
+"h_mm": 210.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Times New Roman Bold",
+"Times New Roman Regular"
+],
+"text": "By Author's Name Name of The Play 30.4.2004 Theater's Name Presents Program The ",
+"indexed": true
+},
+"calendar_a4_landscape": {
+"pages": 2,
+"w_mm": 297.0,
+"h_mm": 210.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"CORNFLOWERBLUE"
+],
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Times New Roman Regular"
+],
+"text": "Mon Tue Wed Thu Fri Sat Sun 53 27 28 29 30 31 1 2 1 3 4 5 6 7 8 9 2 10 11 12 13 ",
+"indexed": true
+},
+"calendar_a4_photo": {
+"pages": 1,
+"w_mm": 210.0,
+"h_mm": 297.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"CORNFLOWERBLUE"
+],
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Times New Roman Bold",
+"Times New Roman Regular"
+],
+"text": "January 200 5 53 27 28 29 30 31 1 2 1 3 4 5 6 7 8 9 2 10 11 12 13 14 15 16 3 17 ",
+"indexed": true
+},
+"news_school_admission_flyer": {
+"pages": 1,
+"w_mm": 210.0,
+"h_mm": 297.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"ADBLUE",
+"ADDARKBLUE",
+"ADGREEN",
+"ADORANGE",
+"ADRED",
+"ADYELLOW"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Bold Italic",
+"Arial Regular"
+],
+"text": "UPS NOIDA Ranked 7th in Noida UTTARAKHAND PUBLIC SCHOOL (Senior Secondary School",
+"indexed": true
+},
+"news_disp_hospital_4x15": {
+"pages": 1,
+"w_mm": 161.0,
+"h_mm": 150.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#0E8A8A",
+"#12305B",
+"#D7263D",
+"#F26B1D",
+"#FFE27A"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Impact Regular"
+],
+"text": "YOUR LOGO CITY CARE HOSPITAL MULTI-SPECIALITY  |  24 x 7 EMERGENCY  |  ICU  |  P",
+"indexed": true
+},
+"news_disp_sale_full_page": {
+"pages": 1,
+"w_mm": 325.0,
+"h_mm": 470.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#0B7A43",
+"#10133A",
+"#7B2CBF",
+"#D90429",
+"#F77F00",
+"#FFD60A"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Georgia Bold Italic",
+"Impact Regular"
+],
+"text": "YOUR LOGO MEGA MART YOUR FAMILY SHOPPING DESTINATION  |  FIVE FLOORS  |  ONE ROO",
+"indexed": true
+},
+"news_disp_jewellery_half_horizontal": {
+"pages": 1,
+"w_mm": 325.0,
+"h_mm": 235.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#5A0F1E",
+"#D4AF37",
+"#FFF3D6"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Georgia Bold",
+"Georgia Bold Italic",
+"Impact Regular"
+],
+"text": "YOUR LOGO SWARNA MAHAL JEWELLERS HALLMARKED GOLD  |  CERTIFIED DIAMONDS  |  SINC",
+"indexed": true
+},
+"news_disp_plots_half_vertical": {
+"pages": 1,
+"w_mm": 161.0,
+"h_mm": 470.0,
+"kruti": true,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#0B6B3A",
+"#1B5E20",
+"#2E8B57",
+"#E65100",
+"#F28C00",
+"#FFE27A"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Kruti Dev 010 Regular"
+],
+"text": "YOUR LOGO gfj;kyh ,UDyso }kjk% —&quot;.kk fcYMlZ ,.M MsoyilZ u;k çkstsDV y‚Up vi",
+"indexed": true
+},
+"news_disp_school_5x20": {
+"pages": 1,
+"w_mm": 202.0,
+"h_mm": 200.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#4B1D8F",
+"#E8590C",
+"#FFD23F"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Impact Regular"
+],
+"text": "YOUR LOGO GLOBAL PUBLIC SCHOOL Affiliated to CBSE  |  Sector 00, Your City  |  C",
+"indexed": true
+},
+"news_disp_car_quarter_page": {
+"pages": 1,
+"w_mm": 161.0,
+"h_mm": 235.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#E01E37"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Impact Regular"
+],
+"text": "YOUR LOGO AUTO ZONE MOTORS AUTHORISED DEALER  |  SALES  |  SERVICE  |  SPARES FE",
+"indexed": true
+},
+"news_disp_electronics_4x10": {
+"pages": 1,
+"w_mm": 161.0,
+"h_mm": 100.0,
+"kruti": true,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#0D47A1",
+"#C62828",
+"#FFD600"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Impact Regular",
+"Kruti Dev 010 Regular"
+],
+"text": "YOUR LOGO jkèks bysDVª‚fuDl lcls Hkjkslsean 'kks:e] lHkh cM+s czkaM 0% C;kt ij E",
+"indexed": true
+},
+"news_disp_furniture_4x12": {
+"pages": 1,
+"w_mm": 161.0,
+"h_mm": 120.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#5D3A1A",
+"#E07B00"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Georgia Bold",
+"Impact Regular"
+],
+"text": "YOUR LOGO WOODCRAFT FURNITURE FESTIVE FURNITURE FEST EXTRA 10% ON CARDS FLAT 40%",
+"indexed": true
+},
+"news_disp_diwali_5x15": {
+"pages": 1,
+"w_mm": 202.0,
+"h_mm": 150.0,
+"kruti": true,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#1B1245",
+"#2B1B6B",
+"#D81B60",
+"#FF7A00",
+"#FFC107"
+],
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Kruti Dev 010 Regular"
+],
+"text": "'kqHk nhikoyh vki ,oa vkids ifjokj dks nhikoyh dh gkfnZd 'kqHkdkeuk,¡ YOUR LOGO ",
+"indexed": true
+},
+"news_disp_holi_4x10": {
+"pages": 1,
+"w_mm": 161.0,
+"h_mm": 100.0,
+"kruti": true,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#00A8E8",
+"#4A148C",
+"#7B1FA2",
+"#7CB342",
+"#C2185B",
+"#E91E63",
+"#FF5722",
+"#FFC107"
+],
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Kruti Dev 010 Regular"
+],
+"text": "  YOUR LOGO gksyh dh gkfnZd 'kqHkdkeuk,¡ jaxksa dk ;g ioZ vkids thou esa [kqf'k;",
+"indexed": true
+},
+"news_disp_eid_3x10": {
+"pages": 1,
+"w_mm": 120.0,
+"h_mm": 100.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#0B5D3B",
+"#F2C14E"
+],
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Georgia Bold Italic"
+],
+"text": "Wishing you peace, joy and prosperity EID MUBARAK Warm wishes to you and your fa",
+"indexed": true
+},
+"news_disp_independence_5x10": {
+"pages": 1,
+"w_mm": 202.0,
+"h_mm": 100.0,
+"kruti": true,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#000080",
+"#138808",
+"#FF9933"
+],
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Kruti Dev 010 Regular"
+],
+"text": "Lora=rk fnol dh gkfnZd 'kqHkdkeuk,¡ t; fgUn 15 vxLr ij ns'k ds lHkh ukxfjdksa dk",
+"indexed": true
+},
+"news_disp_sweets_4x10": {
+"pages": 1,
+"w_mm": 161.0,
+"h_mm": 100.0,
+"kruti": true,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#7A1428",
+"#B3261E",
+"#E8590C",
+"#FFC93C"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Kruti Dev 010 Regular"
+],
+"text": "YOUR LOGO Jh ckykth LohV~l 'kq) ns'kh ?kh dh feBkb;k¡ ,oa uedhu R;ksgkj dh feBkl",
+"indexed": true
+},
+"news_disp_restaurant_5x12": {
+"pages": 1,
+"w_mm": 202.0,
+"h_mm": 120.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#7A0C1E",
+"#8A6A2F",
+"#B8651B",
+"#E9B44C",
+"#F4DDB0"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Georgia Bold Italic",
+"Impact Regular"
+],
+"text": "YOUR LOGO SPICE ROUTE RESTAURANT FAMILY DINING  |  TANDOOR  |  BANQUET  |  HOME ",
+"indexed": true
+},
+"news_disp_grand_opening_4x15": {
+"pages": 1,
+"w_mm": 161.0,
+"h_mm": 150.0,
+"kruti": true,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#1B7F4A",
+"#1F5FBF",
+"#4B0A17",
+"#B3122E",
+"#F9B81C"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Kruti Dev 010 Regular"
+],
+"text": "YOUR LOGO HkO; mn~?kkVu gekjs u, 'kks:e dk 'kqHkkjEHk eq[; vfrfFk% Jh ¼uke½ fnuk",
+"indexed": true
+},
+"news_disp_twowheeler_4x10": {
+"pages": 1,
+"w_mm": 161.0,
+"h_mm": 100.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#FFD500"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Impact Regular"
+],
+"text": "YOUR LOGO SPEED WHEELS AUTO AUTHORISED TWO-WHEELER DEALER RIDE HOME TODAY! BIKE ",
+"indexed": true
+},
+"news_disp_coaching_3x10": {
+"pages": 1,
+"w_mm": 120.0,
+"h_mm": 100.0,
+"kruti": true,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#0B4F5C",
+"#FF7A18"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Kruti Dev 010 Regular"
+],
+"text": "YOUR LOGO Kku nhi dksÇpx vuqHkoh f'k{kd   |   lhfer lhVsa u;k cSp çkjEHk lQyrk d",
+"indexed": true
+},
+"news_disp_matrimonial_bw_3x10": {
+"pages": 1,
+"w_mm": 120.0,
+"h_mm": 100.0,
+"kruti": true,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Kruti Dev 010 Regular"
+],
+"text": "  oSokfgd oj pkfg,% lqUnj] lq'khy] ,e-,- ch-,M-] 26 o&quot;kZ] dk;LFk ifjokj dh ",
+"indexed": true
+},
+"news_disp_vacancy_bw_3x10": {
+"pages": 1,
+"w_mm": 120.0,
+"h_mm": 100.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Impact Regular"
+],
+"text": "  VACANCIES LOGO YOUR COMPANY PVT. LTD. Required immediately for our Your City o",
+"indexed": true
+},
+"news_disp_tender_bw_4x10": {
+"pages": 1,
+"w_mm": 161.0,
+"h_mm": 100.0,
+"kruti": false,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Impact Regular",
+"Times New Roman Bold",
+"Times New Roman Regular"
+],
+"text": "  EMBLEM OFFICE OF THE EXECUTIVE ENGINEER Public Works Division, Your City (Stat",
+"indexed": true
+},
+"news_disp_auction_notice_bw_5x15": {
+"pages": 1,
+"w_mm": 202.0,
+"h_mm": 150.0,
+"kruti": true,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Kruti Dev 010 Regular"
+],
+"text": "  LOGO çkfèk—r vfèkdkjh dk dk;kZy; vkidk cSad @ laLFkku] 'kk[kk% vkidk 'kgj uhyk",
+"indexed": true
+},
+"news_disp_strip_8x8_loan_mela": {
+"pages": 1,
+"w_mm": 325.0,
+"h_mm": 80.0,
+"kruti": false,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#0B2545",
+"#F6B800"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Impact Regular"
+],
+"text": "YOUR LOGO SAFE &amp; SURE FINANCE HOME  |  CAR  |  PERSONAL  |  BUSINESS LOANS Z",
+"indexed": true
+},
+"news_disp_clinic_3x10": {
+"pages": 1,
+"w_mm": 120.0,
+"h_mm": 100.0,
+"kruti": true,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#00332C",
+"#00796B",
+"#F57C00"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Kruti Dev 010 Regular"
+],
+"text": "YOUR LOGO eqLdku MsaVy Dyhfud vkèkqfud rduhd] vuqHkoh fpfdRld fu%'kqYd nar tk¡p ",
+"indexed": true
+},
+"news_disp_jacket_deepotsav_full_page": {
+"pages": 1,
+"w_mm": 325.0,
+"h_mm": 470.0,
+"kruti": true,
+"devanagari": false,
+"bw": false,
+"chromatic_colors": [
+"#1B1245",
+"#2B1B6B",
+"#D81B60",
+"#FF7A00",
+"#FFC107"
+],
+"fonts": [
+"Arial Black",
+"Arial Bold",
+"Arial Regular",
+"Impact Regular",
+"Kruti Dev 010 Regular"
+],
+"text": "YOUR LOGO vkidk e‚y @ laLFkku lHkh çeq[k czkaM ,d gh Nr ds uhps nhiksRlo egklsy ",
+"indexed": true
+},
+"news_disp_namechange_bw_2x8": {
+"pages": 1,
+"w_mm": 79.0,
+"h_mm": 80.0,
+"kruti": true,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Kruti Dev 010 Regular"
+],
+"text": "  uke ifjorZu lwpuk eSa ¼iqjkuk uke½] iq= @ iq=h Jh ¼firk dk uke½] fuoklh ¼iwjk ",
+"indexed": true
+}
+}

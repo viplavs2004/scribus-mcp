@@ -367,7 +367,8 @@ _e.dpi = {int(dpi)}
 _e.scale = 100
 _e.saveAs({str(out)!r})
 _pw, _ph = _s.getPageSize()
-_value = [_pw, _ph]
+_k = _s.pointsToDocUnit(1.0)  # page size comes in document units (mm for most templates)
+_value = [_pw / _k, _ph / _k]
 """
         res = await backend.script(body, result_expr="_value")
         if not res.ok or not out.exists():
@@ -380,7 +381,11 @@ _value = [_pw, _ph]
             pw_pt, ph_pt = res.value
             img = Image.open(out)
             box = (0, 0, round(pw_pt / 72 * dpi), round(ph_pt / 72 * dpi))
-            img = img.crop(box)
+            # ImageExport may render at a different scale than asked (then the image already is
+            # the page); only crop when the canvas is oversized (aspect ratio differs).
+            if abs(img.width / img.height - box[2] / box[3]) > 0.01:
+                img = img.crop(box)
+            box = (0, 0, img.width, img.height)
             if path:
                 img.save(out)
             buf = BytesIO()

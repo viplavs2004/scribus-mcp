@@ -5,6 +5,8 @@ from scribus_mcp.tools import (
     ad_boxes,
     arrange,
     templates,
+    template_fields,
+    template_search,
     decor,
     colors,
     document,
@@ -52,6 +54,8 @@ def register_all(mcp, ctx) -> None:
     decor.register(mcp, ctx)
     arrange.register(mcp, ctx)
     templates.register(mcp, ctx)
+    template_search.register(mcp, ctx)
+    template_fields.register(mcp, ctx)
     hindi.register(mcp, ctx)
     verify.register(mcp, ctx)
 
@@ -61,7 +65,7 @@ def register_all(mcp, ctx) -> None:
 # for the odd thing the composed ones cannot do.
 ADS_TOOLSET: tuple[str, ...] = (
     # start / documents
-    "list_templates", "new_from_template", "create_document", "open_document",
+    "list_templates", "find_templates", "new_from_template", "fill_template_fields", "create_document", "open_document",
     "save_document", "save_document_as", "close_document", "get_document_info", "add_page",
     "goto_page", "get_page_size", "set_page_margins",
     # composed building blocks
