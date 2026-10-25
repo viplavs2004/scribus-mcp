@@ -126,6 +126,8 @@ def register(mcp, ctx: ServerCtx) -> None:
         ``template`` is the ``id`` or (part of) the ``name`` from ``list_templates``. Returns the
         page size and every text frame with its current text and geometry, so you can replace
         the placeholder text with ``set_text`` / ``set_text_hindi`` and then ``verify_document``.
+        ``editable_fields`` lists every text frame with its role (headline, offer, contact, logo
+        slot ...), current text, font and char budget; fill them with ``fill_template_fields``.
         """
         items = scan_templates(template_dirs(ctx.config.scribus_bin))
         t = next((x for x in items if x["id"].lower() == template.lower()), None)
@@ -167,5 +169,7 @@ _value = {{'pages': _s.pageCount(), 'page_w_mm': round(_pw * _u, 1), 'page_h_mm'
         res = await backend.script(body, result_expr="_value")
         if not res.ok:
             return {"ok": False, "error": res.error}
+        from scribus_mcp.tools.template_fields import describe_open_document
+        fields = await describe_open_document(backend)  # editable_fields, decorative, instructions
         return {"ok": True, "template": t["name"], "document": str(dst), **(res.value or {}),
-                "usage": t["usage"], "error": None}
+                **fields, "usage": t["usage"], "error": None}
