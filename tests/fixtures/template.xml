@@ -1,0 +1,1249 @@
+<?xml version="1.0" encoding="utf8"?>
+<templates>
+	<template category="Books">
+		<name>Lulu and Createspace 6x9 paper book</name>
+		<file>Lulu_and_Createspace_6x9_paper_book/Lulu_and_Createspace_6x9_paper_book.sla.gz</file>
+		<tnail>Lulu_and_Createspace_6x9_paper_book/Lulu_and_Createspace_6x9_paper_booktn.png</tnail>
+		<img>Lulu_and_Createspace_6x9_paper_book/Lulu_and_Createspace_6x9_paper_book.png</img>
+		<psize>custom, 432x648</psize>
+		<color></color>
+		<descr>Basic 6x9 paperback book template for use with services such as Lulu and Createspace. This is just a template, provided as-is without guarantee of any kind. </descr>
+		<usage>This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.</usage>
+		<scribus_version>1.4.5</scribus_version>
+		<date>2016-02-06</date>
+		<author>IndieImprint</author>
+		<email>mikeb@indieimprint.com</email>
+	</template>
+	<template category="Newsletters">
+		<name>Newsletter 1</name>
+    	<file>nl1/nl1.sla.gz</file>
+    	<tnail>nl1/nl1tn.png</tnail>
+    	<img>nl1/nl1.png</img>
+    	<psize>A4</psize>
+    	<color>2 colors, green and orange</color>
+    	<descr>Simple newsletter template.</descr>
+    	<usage>Right click on text and image frames and replace what's inside with your own. Images are free to be used in your documents as well.</usage>
+    	<scribus_version>1.2RC1cvs</scribus_version>
+		<date>2004-07-11</date>
+		<author>RL</author>
+    	<email>tsoots@gmail.com</email>
+	</template>
+	<template category="Newsletters">
+  		<name>Newsletter 2</name>
+    	<file>nl2/nl2.sla.gz</file>
+    	<tnail>nl2/nl2tn.png</tnail>
+    	<img>nl2/nl2.png</img>
+    	<psize>A4</psize>
+    	<color>b/w</color>
+    	<descr>Simple newsletter template.</descr>
+    	<usage>Right click on text and image frames and replace what's inside with your own. Images are free to be used in your documents as well.</usage>
+		<scribus_version>1.2RC1cvs</scribus_version>
+		<date>2004-07-11</date>
+    	<author>RL</author>
+    	<email>tsoots@gmail.com</email>
+  	</template>
+	<template category="Brochures">
+  		<name>Brochure 1</name>
+    	<file>br1/br1.sla.gz</file>
+    	<tnail>br1/br1tn.png</tnail>
+    	<img>br1/br1.png</img>
+    	<psize>A4</psize>
+    	<color>Color</color>
+    	<descr>Simple brochure with a colorful fruity theme.</descr>
+    	<usage>Right click on text replace what's inside with your own.</usage>
+    	<scribus_version>1.2RC1cvs</scribus_version>
+		<date>2004-07-11</date>
+		<author>RL</author>
+    	<email>tsoots@gmail.com</email>
+	</template>
+	<template category="Newsletters">
+		<name>TextBased</name>
+		<file>textbased/textbased.sla.gz</file>
+		<tnail>textbased/textbasedtn.png</tnail>
+		<img>textbased/textbased.png</img>
+		<psize>A4</psize>
+		<color>Color</color>
+		<descr>A decent newsletter/magazine originally created for one non-profit organization. Unrealized unfortunately.</descr>
+		<usage>Right click on text replace what's inside with your own. Or whatever you want to... ;)</usage>
+		<scribus_version>1.2RC1cvs</scribus_version>
+		<date>2004-07-10</date>
+		<author>Petr Vaněk</author>
+		<email>petr@yarpen.cz</email>
+	</template>
+	<template category="PDF Presentations">
+		<name>Blue Orange</name>
+		<file>pres_backgr_1/blue_orange_vector.sla.gz</file>
+		<tnail>pres_backgr_1/blue_orange_vectortn.png</tnail>
+		<img>pres_backgr_1/blue_orange_vector.png</img>
+		<psize>custom, 842x632</psize>
+		<color>RGB</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-25</date>
+		<author>Dhananjay Garg</author>
+		<email></email>
+	</template>
+	<template category="PDF Presentations">
+		<name>Flood Light</name>
+		<file>pres_backgr_2/flood_light.sla.gz</file>
+		<tnail>pres_backgr_2/flood_lighttn.png</tnail>
+		<img>pres_backgr_2/flood_light.png</img>
+		<psize>custom, 842x632</psize>
+		<color>RGB</color>
+		<descr>Presentation Background.</descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-25</date>
+		<author>Dhananjay Garg</author>
+		<email></email>
+	</template>
+	<template category="PDF Presentations">
+		<name>Glass Ripples</name>
+		<file>pres_backgr_3/glass_ripples.sla.gz</file>
+		<tnail>pres_backgr_3/glass_ripplestn.png</tnail>
+		<img>pres_backgr_3/glass_ripples.png</img>
+		<psize>custom, 842x632</psize>
+		<color>RGB</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-27</date>
+		<author>Dhananjay Garg</author>
+		<email></email>
+	</template>
+	<template category="PDF Presentations">
+		<name>Bokeh</name>
+		<file>pres_backgr_4/bokeh.sla.gz</file>
+		<tnail>pres_backgr_4/Bokehtn.png</tnail>
+		<img>pres_backgr_4/Bokeh.png</img>
+		<psize>custom, 842x632</psize>
+		<color>RGB</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-27</date>
+		<author>Dhananjay Garg</author>
+		<email></email>
+	</template>
+	<template category="Packaging">
+		<name>Cheat Cube</name>
+		<file>cc/Cheat_Cube.sla.gz</file>
+		<tnail>cc/Cheat_Cubetn.png</tnail>
+		<img>cc/Cheat_Cube.png</img>
+		<psize>custom, 1052x744</psize>
+		<color>Color</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-18</date>
+		<author>Fedora Project</author>
+		<email></email>
+	</template>
+	<template category="Cards">
+		<name>Menu template 1</name>
+		<file>mc/menu_template1.sla.gz</file>
+		<tnail>mc/menu_template1tn.png</tnail>
+		<img>mc/menu_template1.png</img>
+		<psize>custom, 1224x792</psize>
+		<color>Color</color>
+		<descr>Simple menu card template.</descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-18</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Brochures">
+		<name>Cover 1</name>
+		<file>cover1/cover1.sla.gz</file>
+		<tnail>cover1/cover1tn.png</tnail>
+		<img>cover1/cover1.png</img>
+		<psize>A4, Hochformat</psize>
+		<color>Color</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-18</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Brochures">
+		<name>Cover 2</name>
+		<file>cover2/cover2.sla.gz</file>
+		<tnail>cover2/cover2tn.png</tnail>
+		<img>cover2/cover2.png</img>
+		<psize>A4, Hochformat</psize>
+		<color>Color</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-18</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Brochures">
+		<name>Cover 3</name>
+		<file>cover3/cover3.sla.gz</file>
+		<tnail>cover3/cover3tn.png</tnail>
+		<img>cover3/cover3.png</img>
+		<psize>A4, Hochformat</psize>
+		<color>Color</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-18</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Brochures">
+		<name>Cover 4</name>
+		<file>cover4/cover4.sla.gz</file>
+		<tnail>cover4/cover4tn.png</tnail>
+		<img>cover4/cover4.png</img>
+		<psize>A4, Hochformat</psize>
+		<color>Color</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-18</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Brochures">
+		<name>Cover 5</name>
+		<file>cover5/cover5.sla.gz</file>
+		<tnail>cover5/cover5tn.png</tnail>
+		<img>cover5/cover5.png</img>
+		<psize>A4, Hochformat</psize>
+		<color>Color</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-18</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid A4 L</name>
+		<file>grid_br_a4_l/Brochure_Grid_A4_L.sla.gz</file>
+		<tnail>grid_br_a4_l/Brochure_Grid_A4_Ltn.png</tnail>
+		<img>grid_br_a4_l/Brochure_Grid_A4_L.png</img>
+		<psize>custom, 1684x596</psize>
+		<color>RGB</color>
+		<descr>A design grid for an A4 brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-24</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid A4 P</name>
+		<file>grid_br_a4_p/Brochure_Grid_A4_P.sla.gz</file>
+		<tnail>grid_br_a4_p/Brochure_Grid_A4_Ptn.png</tnail>
+		<img>grid_br_a4_p/Brochure_Grid_A4_P.png</img>
+		<psize>custom, 1191x842</psize>
+		<color>RGB</color>
+		<descr>A design grid for an A4 brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-23</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid 975x85 in L</name>
+		<file>grid_br_975x85in_l/Brochure_Grid_975x85in_L.sla.gz</file>
+		<tnail>grid_br_975x85in_l/Brochure_Grid_975x85_in_Ltn.png</tnail>
+		<img>grid_br_975x85in_l/Brochure_Grid_975x85_in_L.png</img>
+		<psize>custom, 1404x612</psize>
+		<color>RGB</color>
+		<descr>A design grid for a 9.75x8.5 in brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-24</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid 975x85 in P</name>
+		<file>grid_br_975x85_p/Brochure_Grid_975x85in_P.sla.gz</file>
+		<tnail>grid_br_975x85_p/Brochure_Grid_975x85_in_Ptn.png</tnail>
+		<img>grid_br_975x85_p/Brochure_Grid_975x85_in_P.png</img>
+		<psize>custom, 1224x702</psize>
+		<color>RGB</color>
+		<descr>A design grid for a 9.75x8.5 in brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-24</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid 375x85 in P</name>
+		<file>grid_br_375x85_p/Brochure_Grid_375x85in_P.sla.gz</file>
+		<tnail>grid_br_375x85_p/Brochure_Grid_375x85_in_Ptn.png</tnail>
+		<img>grid_br_375x85_p/Brochure_Grid_375x85_in_P.png</img>
+		<psize>custom, 540x613</psize>
+		<color>RGB</color>
+		<descr>A design grid for a 3.75x8.5 in brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-24</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid 375x85 in L</name>
+		<file>grid_br_375x85_l/Brochure_Grid_375x85in_L.sla.gz</file>
+		<tnail>grid_br_375x85_l/Brochure_Grid_375x85_in_Landscapetn.png</tnail>
+		<img>grid_br_375x85_l/Brochure_Grid_375x85_in_Landscape.png</img>
+		<psize>custom, 1224x270</psize>
+		<color>RGB</color>
+		<descr>A design grid for a 3.75x8.5 in brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-24</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid 100x210 P</name>
+		<file>grid_br_100x210_p/Brochure_Grid_100x210_P.sla.gz</file>
+		<tnail>grid_br_100x210_p/Brochure_Grid_100x210_Ptn.png</tnail>
+		<img>grid_br_100x210_p/Brochure_Grid_100x210_P.png</img>
+		<psize>custom, 567x596</psize>
+		<color>RGB</color>
+		<descr>A design grid for a 100x210 mm portrait brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-23</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid 100x210 L</name>
+		<file>grid_br_100x210_l/Brochure_Grid_100x210_L.sla.gz</file>
+		<tnail>grid_br_100x210_l/Brochure_Grid_100x210_mm_Landscapetn.png</tnail>
+		<img>grid_br_100x210_l/Brochure_Grid_100x210_mm_Landscape.png</img>
+		<psize>custom, 1191x284</psize>
+		<color>RGB</color>
+		<descr>A design grid for a 100x210 mm landscape brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-23</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid 55x85 in P</name>
+		<file>grid_br_55x86in_p/Brochure_Grid_55x85in_P.sla.gz</file>
+		<tnail>grid_br_55x86in_p/Brochure_Grid_55x85in_Portraoittn.png</tnail>
+		<img>grid_br_55x86in_p/Brochure_Grid_55x85in_Portraoit.png</img>
+		<psize>custom, 792x613</psize>
+		<color>RGB</color>
+		<descr>A design grid for a 5.5x8.5 in brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-24</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid 55x85 in L</name>
+		<file>grid_br_55x85in_l/Brochure_Grid_55x85in_L.sla.gz</file>
+		<tnail>grid_br_55x85in_l/Brochure_Grid_55x85_in_Ltn.png</tnail>
+		<img>grid_br_55x85in_l/Brochure_Grid_55x85_in_L.png</img>
+		<psize>custom, 1224x396</psize>
+		<color>RGB</color>
+		<descr>A design grid for a 5.5x8.5 in brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-23</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Poster Grid A3</name>
+		<file>grid_poster_a3/Poster_Grid_A3.sla.gz</file>
+		<tnail>grid_poster_a3/Poster_Grid_A3tn.png</tnail>
+		<img>grid_poster_a3/Poster_Grid_A3.png</img>
+		<psize>custom, 842x1191</psize>
+		<color>RGB</color>
+		<descr>A design grid for an A3 poster.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-24</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Poster Grid A2</name>
+		<file>grid_poster_a2/Poster_Grid_A2.sla.gz</file>
+		<tnail>grid_poster_a2/Poster_Grid_A2tn.png</tnail>
+		<img>grid_poster_a2/Poster_Grid_A2.png</img>
+		<psize>custom, 1191x1684</psize>
+		<color>RGB</color>
+		<descr>A design grid for an A2 poster.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-24</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Poster Grid A1</name>
+		<file>grid_poster_a1/Poster_Grid_A1.sla.gz</file>
+		<tnail>grid_poster_a1/Poster_Grid_A1tn.png</tnail>
+		<img>grid_poster_a1/Poster_Grid_A1.png</img>
+		<psize>custom, 1684x2384</psize>
+		<color>RGB</color>
+		<descr>A design grid for an A1 poster.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-24</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Poster Grid A0</name>
+		<file>grid_poster_a0/Poster_Grid_A0.sla.gz</file>
+		<tnail>grid_poster_a0/Poster_Grid_A0tn.png</tnail>
+		<img>grid_poster_a0/Poster_Grid_A0.png</img>
+		<psize>custom, 2384x3371</psize>
+		<color>RGB</color>
+		<descr>A design grid for an A0 poster.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-24</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid USL P</name>
+		<file>grid_br_usl_p/Brochure_Grid_USL_P.sla.gz</file>
+		<tnail>grid_br_usl_p/Brochure_Grid_USL_Ptn.png</tnail>
+		<img>grid_br_usl_p/Brochure_Grid_USL_P.png</img>
+		<psize>custom, 1224x792</psize>
+		<color>RGB</color>
+		<descr>A design grid for a US Letter brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-23</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid USL L</name>
+		<file>grid_br_usl_l/Brochure_Grid_USL_L.sla.gz</file>
+		<tnail>grid_br_usl_l/Brochure_Grid_USL_Ltn.png</tnail>
+		<img>grid_br_usl_l/Brochure Grid_USL_L.png</img>
+		<psize>custom, 1584x612</psize>
+		<color>RGB</color>
+		<descr>A design grid for a US Letter brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-23</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid DIN LANG P</name>
+		<file>grid_br_dinl_p/Brochure_Grid_DIN_LANG_P.sla.gz</file>
+		<tnail>grid_br_dinl_p/Brochure_Grid_DIN_LANG_Ptn.png</tnail>
+		<img>grid_br_dinl_p/Brochure_Grid_DIN_LANG_P.png</img>
+		<psize>custom, 596x596</psize>
+		<color>RGB</color>
+		<descr>A design grid for a DIN LANG brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-23</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid DIN LANG L</name>
+		<file>grid_br_dinl_l/Brochure_Grid_DIN_LANG_L.sla.gz</file>
+		<tnail>grid_br_dinl_l/Brochure_Grid_DIN_LANG_Ltn.png</tnail>
+		<img>grid_br_dinl_l/Brochure_Grid_DIN_LANG_L.png</img>
+		<psize>custom, 1191x298</psize>
+		<color>RGB</color>
+		<descr>A design grid for a DIN LANG brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-23</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid A5 P</name>
+		<file>grid_br_a5_p/Brochure_Grid_A5_P.sla.gz</file>
+		<tnail>grid_br_a5_p/Brochure_Grid_A5_Portraittn.png</tnail>
+		<img>grid_br_a5_p/Brochure_Grid_A5_Portrait.png</img>
+		<psize>custom, 840x596</psize>
+		<color>RGB</color>
+		<descr>A design grid for an A5 brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-23</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Grids">
+		<name>Brochure Grid A5 L</name>
+		<file>grid_br_a5_l/Brochure_Grid_A5_L.sla.gz</file>
+		<tnail>grid_br_a5_l/Brochure_Grid_A5_Ltn.png</tnail>
+		<img>grid_br_a5_l/Brochure_Grid_A5_L.png</img>
+		<psize>custom, 1191x420</psize>
+		<color>RGB</color>
+		<descr>A design grid for an A5 brochure.</descr>
+		<usage>Create your content on the &quot;Content&quot; layer and disable printing of the &quot;Background&quot; layer before printing or exporting to PDF.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-23</date>
+		<author>Christoph Schäfer</author>
+		<email></email>
+	</template>
+	<template category="Business Cards">
+		<name>Business Card Collection</name>
+		<file>buscard_coll/business_card_collection.sla.gz</file>
+		<tnail>buscard_coll/Business_Card_Collectiontn.png</tnail>
+		<img>buscard_coll/Business_Card_Collection.png</img>
+		<psize>custom, 1436x1709</psize>
+		<color>RGB</color>
+		<descr>A collection of business cards.</descr>
+		<usage>Copy a business card into a document or the Scrapbook to reuse and edit it.</usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-23</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Business Cards">
+		<name>Business Card 1</name>
+		<file>buscard1/buscard1.sla.gz</file>
+		<tnail>buscard1/Business_Card_1tn.png</tnail>
+		<img>buscard1/Business_Card_1.png</img>
+		<psize>custom, 252x144</psize>
+		<color>RGB</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-22</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Business Cards">
+		<name>Business Card 2</name>
+		<file>buscard2/buscard2.sla.gz</file>
+		<tnail>buscard2/Business_Card_2tn.png</tnail>
+		<img>buscard2/Business_Card_2.png</img>
+		<psize>custom, 252x144</psize>
+		<color>RGB</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-22</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Business Cards">
+		<name>Business Card 3</name>
+		<file>buscard3/buscard3.sla.gz</file>
+		<tnail>buscard3/Business_Card_3tn.png</tnail>
+		<img>buscard3/Business_Card_3.png</img>
+		<psize>custom, 252x144</psize>
+		<color>RGB</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-22</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Business Cards">
+		<name>Business Card 4</name>
+		<file>buscard4/buscard4.sla.gz</file>
+		<tnail>buscard4/Business_Card_4tn.png</tnail>
+		<img>buscard4/Business_Card_4.png</img>
+		<psize>custom, 252x144</psize>
+		<color>RGB</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-22</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Business Cards">
+		<name>Business Card 5</name>
+		<file>buscard5/buscard5.sla.gz</file>
+		<tnail>buscard5/Business_Card_5tn.png</tnail>
+		<img>buscard5/Business_Card_5.png</img>
+		<psize>custom, 252x144</psize>
+		<color>RGB</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-22</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Business Cards">
+		<name>Business Card 6</name>
+		<file>buscard6/buscard6.sla.gz</file>
+		<tnail>buscard6/Business_Card_6tn.png</tnail>
+		<img>buscard6/Business_Card_6.png</img>
+		<psize>custom, 252x144</psize>
+		<color>RGB</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-22</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Business Cards">
+		<name>Business Card 7</name>
+		<file>buscard7/buscard7.sla.gz</file>
+		<tnail>buscard7/Business_Card_7tn.png</tnail>
+		<img>buscard7/Business_Card_7.png</img>
+		<psize>custom, 252x144</psize>
+		<color>RGB</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-22</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Business Cards">
+		<name>Business Card 8</name>
+		<file>buscard8/buscard8.sla.gz</file>
+		<tnail>buscard8/Business_Card_8tn.png</tnail>
+		<img>buscard8/Business_Card_8.png</img>
+		<psize>custom, 252x144</psize>
+		<color>RGB</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-22</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Business Cards">
+		<name>Business Card 9</name>
+		<file>buscard9/buscard9.sla.gz</file>
+		<tnail>buscard9/Business_Card_9tn.png</tnail>
+		<img>buscard9/Business_Card_9.png</img>
+		<psize>custom, 252x144</psize>
+		<color>RGB</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-22</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Business Cards">
+		<name>Business Card 10</name>
+		<file>buscard10/buscard10.sla.gz</file>
+		<tnail>buscard10/Business_Card_10tn.png</tnail>
+		<img>buscard10/Business_Card_10.png</img>
+		<psize>custom, 252x144</psize>
+		<color>RGB</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-22</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Business Cards">
+		<name>Business Card 11</name>
+		<file>buscard11/buscard11.sla.gz</file>
+		<tnail>buscard11/Business_Card_11tn.png</tnail>
+		<img>buscard11/Business_Card_11.png</img>
+		<psize>custom, 252x144</psize>
+		<color>RGB</color>
+		<descr></descr>
+		<usage></usage>
+		<scribus_version>1.3.9.svn</scribus_version>
+		<date>2010-10-22</date>
+		<author>vectorportal.com</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Greater Noida Authority notice</name>
+		<file>news_gn_notice/news_gn_notice.sla.gz</file>
+		<tnail>news_gn_notice/news_gn_noticetn.png</tnail>
+		<img>news_gn_notice/news_gn_notice.png</img>
+		<psize>custom, 193x184</psize>
+		<color>CMYK, black only</color>
+		<descr>Public notice of the Greater Noida Authority, 6.8 x 6.5 cm, with border, logo, heading, justified body and signature. Hindi in Kruti Dev 010, English in Times New Roman.</descr>
+		<usage>Click into a text frame and change the text. Hindi must be typed with the Kruti Dev keyboard layout. Do not make the text smaller than 5 pt. Export with File, Export, Save as PDF (PDF/X-1a).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Court notice, single column</name>
+		<file>news_court_column/news_court_column.sla.gz</file>
+		<tnail>news_court_column/news_court_columntn.png</tnail>
+		<img>news_court_column/news_court_column.png</img>
+		<psize>custom, 99x298</psize>
+		<color>CMYK, black only</color>
+		<descr>Court, tribunal or consumer-commission notice for one newspaper column, 3.5 x 10.5 cm, with border. Hindi in Kruti Dev 010, English in Times New Roman.</descr>
+		<usage>Click into the text frame and replace the text. Hindi must be typed with the Kruti Dev keyboard layout. Do not make the text smaller than 5 pt.</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Simple ad, 1/6 page, black and white</name>
+		<file>ad_sixth_bw/ad_sixth_bw.sla.gz</file>
+		<tnail>ad_sixth_bw/ad_sixth_bwtn.png</tnail>
+		<img>ad_sixth_bw/ad_sixth_bw.png</img>
+		<psize>custom, 298x142</psize>
+		<color>b/w</color>
+		<descr>Simple black-and-white display ad, 10.5 x 5 cm, with reversed company banner, tagline, address and contact line.</descr>
+		<usage>Replace the placeholder texts with your company's details. Fonts were mapped to Arial / Times New Roman.</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Riku Leino (public domain), converted for Scribus 1.7</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Simple ad, A6 portrait, black and white</name>
+		<file>ad_a6_bw/ad_a6_bw.sla.gz</file>
+		<tnail>ad_a6_bw/ad_a6_bwtn.png</tnail>
+		<img>ad_a6_bw/ad_a6_bw.png</img>
+		<psize>custom, 298x422</psize>
+		<color>b/w</color>
+		<descr>Simple black-and-white ad, 10.5 x 14.9 cm, with name, contact block, address and a rotated tagline.</descr>
+		<usage>Replace the placeholder texts with your company's details.</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Riku Leino (public domain), converted for Scribus 1.7</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Simple ad with clip-art, black and white</name>
+		<file>ad_chairs_bw/ad_chairs_bw.sla.gz</file>
+		<tnail>ad_chairs_bw/ad_chairs_bwtn.png</tnail>
+		<img>ad_chairs_bw/ad_chairs_bw.png</img>
+		<psize>custom, 298x142</psize>
+		<color>b/w</color>
+		<descr>Simple black-and-white ad, 10.5 x 5 cm, with grey clip-art illustration, heading, phone/fax/email and address.</descr>
+		<usage>Replace the placeholder texts with your company's details.</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Riku Leino (public domain), converted for Scribus 1.7</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Large ad with contact panel, black and white</name>
+		<file>ad_company_bw/ad_company_bw.sla.gz</file>
+		<tnail>ad_company_bw/ad_company_bwtn.png</tnail>
+		<img>ad_company_bw/ad_company_bw.png</img>
+		<psize>custom, 524x363</psize>
+		<color>b/w</color>
+		<descr>Black-and-white display ad, 18.5 x 12.8 cm, with rounded black frame, bullet list of services, web address, two branch addresses and a central phone panel.</descr>
+		<usage>Replace the placeholder texts with your company's details.</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Riku Leino (public domain), converted for Scribus 1.7</author>
+		<email></email>
+	</template>
+	<template category="Flyers &amp; Posters">
+		<name>Garage / yard sale poster, A4</name>
+		<file>poster_garage_sale/poster_garage_sale.sla.gz</file>
+		<tnail>poster_garage_sale/poster_garage_saletn.png</tnail>
+		<img>poster_garage_sale/poster_garage_sale.png</img>
+		<psize>A4, portrait</psize>
+		<color>b/w</color>
+		<descr>A4 black-and-white sale poster with bold border, house icon, date, time, address and an items list. Easy to adapt for any single-event notice.</descr>
+		<usage>Replace the placeholder text with your data.</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Riku Leino (public domain), converted for Scribus 1.7</author>
+		<email></email>
+	</template>
+	<template category="Flyers &amp; Posters">
+		<name>Flyer / menu for a pizza house, A4</name>
+		<file>flyer_pizza_menu/flyer_pizza_menu.sla.gz</file>
+		<tnail>flyer_pizza_menu/flyer_pizza_menutn.png</tnail>
+		<img>flyer_pizza_menu/flyer_pizza_menu.png</img>
+		<psize>A4, portrait</psize>
+		<color>blue, red and yellow</color>
+		<descr>A4 colour flyer / price list with banner heading, two columns of numbered items with prices, and a column of dashed special-offer boxes. Good model for a retail price-list ad.</descr>
+		<usage>Replace the items with your own. Fonts were mapped to Arial / Times New Roman.</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Riku Leino (public domain), converted for Scribus 1.7</author>
+		<email></email>
+	</template>
+	<template category="Flyers &amp; Posters">
+		<name>Take-out menu, A4 landscape, colour</name>
+		<file>menu_takeout_color/menu_takeout_color.sla.gz</file>
+		<tnail>menu_takeout_color/menu_takeout_colortn.png</tnail>
+		<img>menu_takeout_color/menu_takeout_color.png</img>
+		<psize>A4, landscape</psize>
+		<color>light brown</color>
+		<descr>Three-column take-out menu leaflet with photo, place information, services and contact details.</descr>
+		<usage>Replace the texts with your meals and information.</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Riku Leino (public domain), converted for Scribus 1.7</author>
+		<email></email>
+	</template>
+	<template category="Flyers &amp; Posters">
+		<name>Take-out menu, A4 landscape, black and white</name>
+		<file>menu_takeout_bw/menu_takeout_bw.sla.gz</file>
+		<tnail>menu_takeout_bw/menu_takeout_bwtn.png</tnail>
+		<img>menu_takeout_bw/menu_takeout_bw.png</img>
+		<psize>A4, landscape</psize>
+		<color>b/w</color>
+		<descr>Black-and-white version of the three-column take-out menu leaflet.</descr>
+		<usage>Replace the texts with your meals and information.</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Riku Leino (public domain), converted for Scribus 1.7</author>
+		<email></email>
+	</template>
+	<template category="Brochures">
+		<name>Brochure, A4 landscape, 3 columns</name>
+		<file>brochure_nightlife/brochure_nightlife.sla.gz</file>
+		<tnail>brochure_nightlife/brochure_nightlifetn.png</tnail>
+		<img>brochure_nightlife/brochure_nightlife.png</img>
+		<psize>A4, landscape</psize>
+		<color>colors, darkish theme</color>
+		<descr>Simple three-panel brochure with a night theme: photo panels, text blocks and a logo/address panel, two pages (outside/inside).</descr>
+		<usage>Replace the texts and images with your own. Images (moon, sunset etc.) are bundled with the template.</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Riku Leino (public domain), converted for Scribus 1.7</author>
+		<email></email>
+	</template>
+	<template category="Newsletters">
+		<name>Newsletter, A4, black and white</name>
+		<file>newsletter_bw_a4/newsletter_bw_a4.sla.gz</file>
+		<tnail>newsletter_bw_a4/newsletter_bw_a4tn.png</tnail>
+		<img>newsletter_bw_a4/newsletter_bw_a4.png</img>
+		<psize>A4, portrait</psize>
+		<color>b/w</color>
+		<descr>Four-page black-and-white newsletter with masthead, article headers, inside list and briefing column.</descr>
+		<usage>Replace the texts with your articles and fix the headers as well.</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Riku Leino (public domain), converted for Scribus 1.7</author>
+		<email></email>
+	</template>
+	<template category="Brochures">
+		<name>Theatre / event programme, 4 pages</name>
+		<file>program_theatre/program_theatre.sla.gz</file>
+		<tnail>program_theatre/program_theatretn.png</tnail>
+		<img>program_theatre/program_theatre.png</img>
+		<psize>custom, 422x595</psize>
+		<color>b/w</color>
+		<descr>Four-page programme booklet (14.9 x 21 cm) with title block, drama masks clip-art and details pages.</descr>
+		<usage>Replace the texts with the information of your event.</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Riku Leino (public domain), converted for Scribus 1.7</author>
+		<email></email>
+	</template>
+	<template category="Stationery">
+		<name>Calendar, A4 landscape</name>
+		<file>calendar_a4_landscape/calendar_a4_landscape.sla.gz</file>
+		<tnail>calendar_a4_landscape/calendar_a4_landscapetn.png</tnail>
+		<img>calendar_a4_landscape/calendar_a4_landscape.png</img>
+		<psize>A4, landscape</psize>
+		<color>blue and black</color>
+		<descr>Monthly wall/desk calendar with a text column and month grid (sample month January 2005), two pages.</descr>
+		<usage>Replace the texts; copy the page and fill in new months.</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Riku Leino (public domain), converted for Scribus 1.7</author>
+		<email></email>
+	</template>
+	<template category="Stationery">
+		<name>Calendar, A4 portrait with photo</name>
+		<file>calendar_a4_photo/calendar_a4_photo.sla.gz</file>
+		<tnail>calendar_a4_photo/calendar_a4_phototn.png</tnail>
+		<img>calendar_a4_photo/calendar_a4_photo.png</img>
+		<psize>A4, portrait</psize>
+		<color>colors, can be converted to b/w easily</color>
+		<descr>A4 portrait monthly calendar with a large photo on top and the month grid below.</descr>
+		<usage>Copy the page and fill in the new month information; the photo is bundled with the template.</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-24</date>
+		<author>Riku Leino (public domain), converted for Scribus 1.7</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>School admission flyer, A4</name>
+		<file>news_school_admission_flyer/news_school_admission_flyer.sla.gz</file>
+		<tnail>news_school_admission_flyer/news_school_admission_flyertn.png</tnail>
+		<img>news_school_admission_flyer/news_school_admission_flyer.png</img>
+		<psize>A4</psize>
+		<color>RGB</color>
+		<descr>Colourful display ad / flyer for a school admission campaign: title bar, crest and rank badges, headline panel, free-admission badge, slogan band, registration bar, two-column feature list, phone bar and note. Built from the Uttarakhand Public School ad; replace the text and add the logo.</descr>
+		<usage>Click into a text frame and change the text. Keep text 5 pt or larger. Convert colours to CMYK before sending to the press (File, Export, Save as PDF, PDF/X-1a).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus MCP session (Antigravity)</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Hospital health camp 4 col x 15 cm</name>
+		<file>news_disp_hospital_4x15/news_disp_hospital_4x15.sla.gz</file>
+		<tnail>news_disp_hospital_4x15/news_disp_hospital_4x15tn.png</tnail>
+		<img>news_disp_hospital_4x15/news_disp_hospital_4x15.png</img>
+		<psize>custom, 456x425</psize>
+		<color>RGB, colour</color>
+		<descr>Display ad 4 col x 15 cm for a hospital: free health check-up camp with logo slot, offer burst, checklist, date strip and appointment bar. English text (Impact / Arial). Page size 161 x 150 mm. Theme: hospital / clinic.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Mega sale, full page</name>
+		<file>news_disp_sale_full_page/news_disp_sale_full_page.sla.gz</file>
+		<tnail>news_disp_sale_full_page/news_disp_sale_full_pagetn.png</tnail>
+		<img>news_disp_sale_full_page/news_disp_sale_full_page.png</img>
+		<psize>custom, 921x1332</psize>
+		<color>RGB, colour</color>
+		<descr>Full-page display ad (8 col x 47 cm) for a retail end-of-season sale: giant headline, offer burst, six category panels with starting prices, bank-offer strip, phone bar. English text (Impact / Arial). Page size 325 x 470 mm. Theme: retail sale / discount.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Jewellery showcase, half page horizontal</name>
+		<file>news_disp_jewellery_half_horizontal/news_disp_jewellery_half_horizontal.sla.gz</file>
+		<tnail>news_disp_jewellery_half_horizontal/news_disp_jewellery_half_horizontaltn.png</tnail>
+		<img>news_disp_jewellery_half_horizontal/news_disp_jewellery_half_horizontal.png</img>
+		<psize>custom, 921x666</psize>
+		<color>RGB, colour</color>
+		<descr>Half-page horizontal display ad (8 col x 23.5 cm) for a jeweller: maroon and gold, double gold frame, rosette ornament, making-charges offer circle, three collection panels. English text (Georgia / Impact / Arial). Page size 325 x 235 mm. Theme: jewellery.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Plot launch, half page vertical (Hindi)</name>
+		<file>news_disp_plots_half_vertical/news_disp_plots_half_vertical.sla.gz</file>
+		<tnail>news_disp_plots_half_vertical/news_disp_plots_half_verticaltn.png</tnail>
+		<img>news_disp_plots_half_vertical/news_disp_plots_half_vertical.png</img>
+		<psize>custom, 456x1332</psize>
+		<color>RGB, colour</color>
+		<descr>Half-page vertical display ad (4 col x 47 cm) for a plot / township launch: green and orange, houses skyline, price burst, plot-size circles, features, map slot. Hindi text in Kruti Dev 010. Page size 161 x 470 mm. Theme: real estate / plot launch.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Hindi is set in Kruti Dev 010: type it with the Kruti Dev keyboard layout. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>School admission 5 col x 20 cm</name>
+		<file>news_disp_school_5x20/news_disp_school_5x20.sla.gz</file>
+		<tnail>news_disp_school_5x20/news_disp_school_5x20tn.png</tnail>
+		<img>news_disp_school_5x20/news_disp_school_5x20.png</img>
+		<psize>custom, 573x567</psize>
+		<color>RGB, colour</color>
+		<descr>Display ad 5 col x 20 cm for a school: purple and yellow, admissions-open headline, session badge, feature list, scholarship burst, phone bar. English text (Impact / Arial). Page size 202 x 200 mm. Theme: school / coaching admission.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Car showroom festive offer, quarter page</name>
+		<file>news_disp_car_quarter_page/news_disp_car_quarter_page.sla.gz</file>
+		<tnail>news_disp_car_quarter_page/news_disp_car_quarter_pagetn.png</tnail>
+		<img>news_disp_car_quarter_page/news_disp_car_quarter_page.png</img>
+		<psize>custom, 456x666</psize>
+		<color>RGB, colour</color>
+		<descr>Quarter-page display ad (4 col x 23.5 cm) for a car dealer: charcoal and red, speed stripes, photo slot, benefits burst, four offer panels, phone bar. English text (Impact / Arial). Page size 161 x 235 mm. Theme: car / two-wheeler showroom.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Electronics festival offer 4 col x 10 cm (Hindi)</name>
+		<file>news_disp_electronics_4x10/news_disp_electronics_4x10.sla.gz</file>
+		<tnail>news_disp_electronics_4x10/news_disp_electronics_4x10tn.png</tnail>
+		<img>news_disp_electronics_4x10/news_disp_electronics_4x10.png</img>
+		<psize>custom, 456x283</psize>
+		<color>RGB, colour</color>
+		<descr>Display ad 4 col x 10 cm for an electronics store: blue and yellow, festival headline, 0% EMI burst, four product chips, phone bar. Hindi text in Kruti Dev 010. Page size 161 x 100 mm. Theme: electronics festival offer.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Hindi is set in Kruti Dev 010: type it with the Kruti Dev keyboard layout. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Furniture festival 4 col x 12 cm</name>
+		<file>news_disp_furniture_4x12/news_disp_furniture_4x12.sla.gz</file>
+		<tnail>news_disp_furniture_4x12/news_disp_furniture_4x12tn.png</tnail>
+		<img>news_disp_furniture_4x12/news_disp_furniture_4x12.png</img>
+		<psize>custom, 456x340</psize>
+		<color>RGB, colour</color>
+		<descr>Display ad 4 col x 12 cm for a furniture showroom: wood-brown side panel with logo and headline, flat-discount block, product list, phone bar. English text (Impact / Arial). Page size 161 x 120 mm. Theme: furniture festival offer.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Diwali greetings 5 col x 15 cm (Hindi)</name>
+		<file>news_disp_diwali_5x15/news_disp_diwali_5x15.sla.gz</file>
+		<tnail>news_disp_diwali_5x15/news_disp_diwali_5x15tn.png</tnail>
+		<img>news_disp_diwali_5x15/news_disp_diwali_5x15.png</img>
+		<psize>custom, 573x425</psize>
+		<color>RGB, colour</color>
+		<descr>Greeting ad 5 col x 15 cm for Diwali: night-blue sky, stars, bunting, rangoli rosette and row of lamps, logo slot and sender line. Decorative only, no figures. Hindi text in Kruti Dev 010. Page size 202 x 150 mm. Theme: festival greetings (Diwali).</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Hindi is set in Kruti Dev 010: type it with the Kruti Dev keyboard layout. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Holi greetings 4 col x 10 cm (Hindi)</name>
+		<file>news_disp_holi_4x10/news_disp_holi_4x10.sla.gz</file>
+		<tnail>news_disp_holi_4x10/news_disp_holi_4x10tn.png</tnail>
+		<img>news_disp_holi_4x10/news_disp_holi_4x10.png</img>
+		<psize>custom, 456x283</psize>
+		<color>RGB, colour</color>
+		<descr>Greeting ad 4 col x 10 cm for Holi: bright colour splashes around a white message panel, logo slot and sender line. Hindi text in Kruti Dev 010. Page size 161 x 100 mm. Theme: festival greetings (Holi).</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Hindi is set in Kruti Dev 010: type it with the Kruti Dev keyboard layout. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Eid greetings 3 col x 10 cm</name>
+		<file>news_disp_eid_3x10/news_disp_eid_3x10.sla.gz</file>
+		<tnail>news_disp_eid_3x10/news_disp_eid_3x10tn.png</tnail>
+		<img>news_disp_eid_3x10/news_disp_eid_3x10.png</img>
+		<psize>custom, 340x283</psize>
+		<color>RGB, colour</color>
+		<descr>Greeting ad 3 col x 10 cm for Eid: green and gold with crescent and stars, English message, logo slot and sender line. Page size 120 x 100 mm. Theme: festival greetings (Eid).</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Independence Day greetings 5 col x 10 cm (Hindi)</name>
+		<file>news_disp_independence_5x10/news_disp_independence_5x10.sla.gz</file>
+		<tnail>news_disp_independence_5x10/news_disp_independence_5x10tn.png</tnail>
+		<img>news_disp_independence_5x10/news_disp_independence_5x10.png</img>
+		<psize>custom, 573x283</psize>
+		<color>RGB, colour</color>
+		<descr>Greeting ad 5 col x 10 cm for 15 August: saffron, white and green bands with a 24-spoke wheel, message and sender line. Hindi text in Kruti Dev 010. Page size 202 x 100 mm. Theme: festival greetings (Independence Day).</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Hindi is set in Kruti Dev 010: type it with the Kruti Dev keyboard layout. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Sweet shop festival offer 4 col x 10 cm (Hindi)</name>
+		<file>news_disp_sweets_4x10/news_disp_sweets_4x10.sla.gz</file>
+		<tnail>news_disp_sweets_4x10/news_disp_sweets_4x10tn.png</tnail>
+		<img>news_disp_sweets_4x10/news_disp_sweets_4x10.png</img>
+		<psize>custom, 456x283</psize>
+		<color>RGB, colour</color>
+		<descr>Display ad 4 col x 10 cm for a sweet shop: maroon and saffron, festival headline, gift-pack burst, three price chips, order bar. Hindi text in Kruti Dev 010. Page size 161 x 100 mm. Theme: restaurant / sweet shop.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Hindi is set in Kruti Dev 010: type it with the Kruti Dev keyboard layout. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Restaurant buffet 5 col x 12 cm</name>
+		<file>news_disp_restaurant_5x12/news_disp_restaurant_5x12.sla.gz</file>
+		<tnail>news_disp_restaurant_5x12/news_disp_restaurant_5x12tn.png</tnail>
+		<img>news_disp_restaurant_5x12/news_disp_restaurant_5x12.png</img>
+		<psize>custom, 573x340</psize>
+		<color>RGB, colour</color>
+		<descr>Display ad 5 col x 12 cm for a restaurant: deep red and gold, unlimited-buffet headline, dish-photo circle with price badge, menu highlights, table-booking bar. English text (Georgia / Impact / Arial). Page size 202 x 120 mm. Theme: restaurant.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Grand opening / inauguration 4 col x 15 cm (Hindi)</name>
+		<file>news_disp_grand_opening_4x15/news_disp_grand_opening_4x15.sla.gz</file>
+		<tnail>news_disp_grand_opening_4x15/news_disp_grand_opening_4x15tn.png</tnail>
+		<img>news_disp_grand_opening_4x15/news_disp_grand_opening_4x15.png</img>
+		<psize>custom, 456x425</psize>
+		<color>RGB, colour</color>
+		<descr>Display ad 4 col x 15 cm for a shop or showroom opening: bunting, ribbon, big inauguration headline, chief-guest and date lines, opening-offer burst, address bar. Hindi text in Kruti Dev 010. Page size 161 x 150 mm. Theme: grand opening / inauguration.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Hindi is set in Kruti Dev 010: type it with the Kruti Dev keyboard layout. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Two-wheeler showroom offer 4 col x 10 cm</name>
+		<file>news_disp_twowheeler_4x10/news_disp_twowheeler_4x10.sla.gz</file>
+		<tnail>news_disp_twowheeler_4x10/news_disp_twowheeler_4x10tn.png</tnail>
+		<img>news_disp_twowheeler_4x10/news_disp_twowheeler_4x10.png</img>
+		<psize>custom, 456x283</psize>
+		<color>RGB, colour</color>
+		<descr>Display ad 4 col x 10 cm for a two-wheeler dealer: black and yellow with chevron stripes, low down-payment burst, bike-photo slot, booking bar. English text (Impact / Arial). Page size 161 x 100 mm. Theme: car / two-wheeler showroom.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Coaching admission 3 col x 10 cm (Hindi)</name>
+		<file>news_disp_coaching_3x10/news_disp_coaching_3x10.sla.gz</file>
+		<tnail>news_disp_coaching_3x10/news_disp_coaching_3x10tn.png</tnail>
+		<img>news_disp_coaching_3x10/news_disp_coaching_3x10.png</img>
+		<psize>custom, 340x283</psize>
+		<color>RGB, colour</color>
+		<descr>Display ad 3 col x 10 cm for a coaching institute: deep teal and orange, new-batch headline, course chips, free demo-class line, phone bar. Hindi text in Kruti Dev 010. Page size 120 x 100 mm. Theme: school / coaching admission.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Hindi is set in Kruti Dev 010: type it with the Kruti Dev keyboard layout. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Matrimonial classified 3 col x 10 cm (Hindi, B/W)</name>
+		<file>news_disp_matrimonial_bw_3x10/news_disp_matrimonial_bw_3x10.sla.gz</file>
+		<tnail>news_disp_matrimonial_bw_3x10/news_disp_matrimonial_bw_3x10tn.png</tnail>
+		<img>news_disp_matrimonial_bw_3x10/news_disp_matrimonial_bw_3x10.png</img>
+		<psize>custom, 340x283</psize>
+		<color>b/w</color>
+		<descr>Black-and-white boxed classified 3 col x 10 cm for matrimonial wanted ads: black header, two sample entries, black contact bar. Hindi text in Kruti Dev 010. Uses Black and White only. Page size 120 x 100 mm. Theme: matrimonial (classified style).</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Hindi is set in Kruti Dev 010: type it with the Kruti Dev keyboard layout. Black and White only: keep it that way for B/W pages. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Job vacancy classified 3 col x 10 cm (B/W)</name>
+		<file>news_disp_vacancy_bw_3x10/news_disp_vacancy_bw_3x10.sla.gz</file>
+		<tnail>news_disp_vacancy_bw_3x10/news_disp_vacancy_bw_3x10tn.png</tnail>
+		<img>news_disp_vacancy_bw_3x10/news_disp_vacancy_bw_3x10.png</img>
+		<psize>custom, 340x283</psize>
+		<color>b/w</color>
+		<descr>Black-and-white boxed classified 3 col x 10 cm for job vacancies: black VACANCIES header, logo slot, post list with bullets, walk-in bar. English text. Uses Black and White only. Page size 120 x 100 mm. Theme: job vacancy (classified style).</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Black and White only: keep it that way for B/W pages. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Tender / public notice box 4 col x 10 cm (B/W)</name>
+		<file>news_disp_tender_bw_4x10/news_disp_tender_bw_4x10.sla.gz</file>
+		<tnail>news_disp_tender_bw_4x10/news_disp_tender_bw_4x10tn.png</tnail>
+		<img>news_disp_tender_bw_4x10/news_disp_tender_bw_4x10.png</img>
+		<psize>custom, 456x283</psize>
+		<color>b/w</color>
+		<descr>Black-and-white public notice 4 col x 10 cm: double border, emblem slot, office heading, notice title bar, four label rows (tender no., work, EMD, last date) and signature block. English text (Times New Roman / Arial). Uses Black and White only. Page size 161 x 100 mm. Theme: tender / public notice.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Black and White only: keep it that way for B/W pages. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Property auction notice 5 col x 15 cm (Hindi, B/W)</name>
+		<file>news_disp_auction_notice_bw_5x15/news_disp_auction_notice_bw_5x15.sla.gz</file>
+		<tnail>news_disp_auction_notice_bw_5x15/news_disp_auction_notice_bw_5x15tn.png</tnail>
+		<img>news_disp_auction_notice_bw_5x15/news_disp_auction_notice_bw_5x15.png</img>
+		<psize>custom, 573x425</psize>
+		<color>b/w</color>
+		<descr>Black-and-white public notice 5 col x 15 cm for a property auction: double border, logo slot, notice title bar, justified paragraph, five label rows, signature block. Hindi text in Kruti Dev 010. Uses Black and White only. Page size 202 x 150 mm. Theme: tender / public notice (auction).</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Hindi is set in Kruti Dev 010: type it with the Kruti Dev keyboard layout. Black and White only: keep it that way for B/W pages. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Loan mela top strip 8 col x 8 cm</name>
+		<file>news_disp_strip_8x8_loan_mela/news_disp_strip_8x8_loan_mela.sla.gz</file>
+		<tnail>news_disp_strip_8x8_loan_mela/news_disp_strip_8x8_loan_melatn.png</tnail>
+		<img>news_disp_strip_8x8_loan_mela/news_disp_strip_8x8_loan_mela.png</img>
+		<psize>custom, 921x227</psize>
+		<color>RGB, colour</color>
+		<descr>Full-width strip ad 8 col x 8 cm (page-top or jacket strip) for a finance company: navy and gold, big LOAN MELA headline, interest-rate burst, phone bar. English text (Impact / Arial). Page size 325 x 80 mm. Theme: jacket / strip (finance offer).</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Clinic / dental camp 3 col x 10 cm (Hindi)</name>
+		<file>news_disp_clinic_3x10/news_disp_clinic_3x10.sla.gz</file>
+		<tnail>news_disp_clinic_3x10/news_disp_clinic_3x10tn.png</tnail>
+		<img>news_disp_clinic_3x10/news_disp_clinic_3x10.png</img>
+		<psize>custom, 340x283</psize>
+		<color>RGB, colour</color>
+		<descr>Display ad 3 col x 10 cm for a dental clinic camp: teal header with logo slot, free-check-up headline, three offers, phone bar. Hindi text in Kruti Dev 010. Page size 120 x 100 mm. Theme: hospital / clinic.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Hindi is set in Kruti Dev 010: type it with the Kruti Dev keyboard layout. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Festival sale jacket, full page (Hindi)</name>
+		<file>news_disp_jacket_deepotsav_full_page/news_disp_jacket_deepotsav_full_page.sla.gz</file>
+		<tnail>news_disp_jacket_deepotsav_full_page/news_disp_jacket_deepotsav_full_pagetn.png</tnail>
+		<img>news_disp_jacket_deepotsav_full_page/news_disp_jacket_deepotsav_full_page.png</img>
+		<psize>custom, 921x1332</psize>
+		<color>RGB, colour</color>
+		<descr>Full-page jacket display ad (8 col x 47 cm) for a festival sale: night-blue sky, bunting, huge Hindi headline, rangoli rosette with discount, four offer panels, row of lamps, phone bar. Hindi text in Kruti Dev 010. Page size 325 x 470 mm. Theme: jacket page / festival sale.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Hindi is set in Kruti Dev 010: type it with the Kruti Dev keyboard layout. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="Newspaper Ads">
+		<name>Name-change public notice 2 col x 8 cm (Hindi, B/W)</name>
+		<file>news_disp_namechange_bw_2x8/news_disp_namechange_bw_2x8.sla.gz</file>
+		<tnail>news_disp_namechange_bw_2x8/news_disp_namechange_bw_2x8tn.png</tnail>
+		<img>news_disp_namechange_bw_2x8/news_disp_namechange_bw_2x8.png</img>
+		<psize>custom, 224x227</psize>
+		<color>b/w</color>
+		<descr>Small black-and-white public notice 2 col x 8 cm for a change of name: border, notice title, justified declaration paragraph and signature line. Hindi text in Kruti Dev 010. Uses Black and White only. Page size 79 x 80 mm. Theme: tender / public notice (name change).</descr>
+		<usage>Click into a text frame and replace the placeholder text. Replace the dashed YOUR LOGO circle with your logo (delete the circle and place your image). Nothing is smaller than 5 pt; keep it that way. Hindi is set in Kruti Dev 010: type it with the Kruti Dev keyboard layout. Black and White only: keep it that way for B/W pages. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-25</date>
+		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+</templates>

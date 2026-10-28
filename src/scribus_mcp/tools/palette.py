@@ -50,6 +50,38 @@ ROLE_NAMES: frozenset[str] = frozenset(
 )
 
 
+_CSS_COLORS: dict[str, str] = {
+    "white": "FFFFFF", "black": "000000", "red": "E8281E", "green": "1A9A3A",
+    "blue": "1F4E9E", "yellow": "FFDE00", "orange": "F58220", "purple": "6A2C91",
+    "pink": "E91E8C", "cyan": "00AEEF", "magenta": "EC008C", "gray": "808080",
+    "grey": "808080", "navy": "0B2E6B", "maroon": "7B1E1E", "gold": "FFC20E",
+    "brown": "7A4A21", "teal": "007C80", "lime": "8DC63F",
+}
+
+
+def parse_color_literal(spec: str) -> tuple[str, tuple[int, int, int]] | None:
+    """Parse ``#RRGGBB`` / ``#RGB`` / a basic colour word.
+
+    Returns ``(scribus_color_name, (r, g, b))`` or None when ``spec`` is not a literal.
+    The colour is named ``#RRGGBB`` so repeated use reuses one swatch.
+    """
+    s = (spec or "").strip()
+    if s.lower() in _CSS_COLORS:
+        s = "#" + _CSS_COLORS[s.lower()]
+    if not s.startswith("#"):
+        return None
+    h = s[1:]
+    if len(h) == 3:
+        h = "".join(c * 2 for c in h)
+    if len(h) != 6:
+        return None
+    try:
+        r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
+    except ValueError:
+        return None
+    return "#" + h.upper(), (r, g, b)
+
+
 # Per-backend cache of "what color names exist in the open document".
 # Keyed by ``id(backend)`` so headless and interactive backends keep
 # separate caches. Populated lazily on first ``resolve_color`` call;
@@ -128,6 +160,16 @@ async def resolve_color(
     if not name:
         return fallback_color, current_shade if current_shade is not None else fallback_shade
     known = await known_colors(backend)
+    if name not in known:
+        literal = parse_color_literal(name)
+        if literal is not None:
+            # "#FFDE00", "#fd0" or a basic CSS name: define it on the fly instead of
+            # silently falling back to Black (the old behaviour hid colour mistakes).
+            r, g, b = literal[1]
+            res = await backend.call("defineColorRGB", literal[0], r, g, b)
+            if res.ok or "exist" in str(res.error or "").lower():
+                add_known_color(backend, literal[0])
+                return literal[0], current_shade if current_shade is not None else role_shade
     if name in known:
         return name, current_shade if current_shade is not None else role_shade
     return fallback_color, current_shade if current_shade is not None else fallback_shade
@@ -138,5 +180,6 @@ __all__ = [
     "add_known_color",
     "invalidate_palette",
     "known_colors",
+    "parse_color_literal",
     "resolve_color",
 ]

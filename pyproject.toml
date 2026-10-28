@@ -23,7 +23,7 @@ classifiers = [
     "Operating System :: MacOS",
 ]
 dependencies = [
-    "mcp>=1.2.0",
+    "mcp>=1.2,<2",
     "pydantic>=2.6",
     "markdown-it-py>=3.0",
     "Pillow>=10.2",
@@ -49,6 +49,7 @@ Issues = "https://github.com/caewa/scribus-mcp/issues"
 include = [
     "src/scribus_mcp/**/*.py",
     "src/scribus_mcp/**/*.spy",
+    "src/scribus_mcp/data/*.json",
     "doc/BEST_PRACTICES.md",
 ]
 
@@ -60,6 +61,7 @@ include = [
 include = [
     "src/scribus_mcp/**/*.py",
     "src/scribus_mcp/**/*.spy",
+    "src/scribus_mcp/data/*.json",
     "doc/BEST_PRACTICES.md",
     "LICENSE",
     "README.md",

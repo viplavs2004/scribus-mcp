@@ -26,7 +26,9 @@ def register(mcp, ctx: ServerCtx) -> None:
 
         pages='all' or a comma list like '1,3,5-7'. version: 1.4 | 1.5 | X-1a | X-3 | X-4.
         """
-        version_map = {"1.4": 13, "1.5": 14, "X-1a": 11, "X-3": 12, "X-4": 15}
+        # Scribus PDFfile.version: 10 = PDF/X-4, 11 = PDF/X-1a, 12 = PDF/X-3,
+        # 13 = PDF 1.3, 14 = PDF 1.4, 15 = PDF 1.5. (X-4 used to be mapped to 15 = plain 1.5.)
+        version_map = {"1.4": 14, "1.5": 15, "X-1a": 11, "X-3": 12, "X-4": 10}
         body = f"""\
 import scribus as _s
 _pdf = _s.PDFfile()
@@ -34,6 +36,10 @@ _pdf.file = {path!r}
 _pdf.compress = {1 if compress else 0}
 _pdf.compressmtd = 0
 _pdf.version = {version_map[version]}
+try:
+    _pdf.info = _s.getDocName() or 'Document'
+except Exception:
+    pass
 _pdf.resolution = {resolution}
 _pdf.bleedt = {bleed_mm}
 _pdf.bleedb = {bleed_mm}
@@ -67,6 +73,7 @@ _value = {{'path': {path!r}, 'pages_exported': len(_pdf.pages)}}
         mode: Mode = "auto",
     ) -> list[TextContent | ImageContent]:
         """Render a page to a PNG and return it inline so Claude can see the layout.
+        (``render_preview`` is the preferred variant.)
 
         page_number=0 means the current page. The image is downscaled so
         max(width, height) <= max_pixels to keep responses small.
@@ -88,7 +95,9 @@ _export.scale = 100
 _export.transparentBkgnd = 0
 _export.quality = 100
 _export.saveAs({str(out_path)!r})
-_value = {str(out_path)!r}
+_pw, _ph = _s.getPageSize()
+_k = 72.0 / 25.4 if _s.getUnit() == 1 else 1.0
+_value = [{str(out_path)!r}, _pw * _k, _ph * _k]
 """
         backend = await get_backend(ctx, mode)
         result = await backend.script(body, result_expr="_value")
@@ -96,6 +105,7 @@ _value = {str(out_path)!r}
             return [TextContent(type="text", text=f"Render failed: {result.error}")]
 
         png_path = Path(out_path)
+        page_pt = result.value[1:3] if isinstance(result.value, list) and len(result.value) == 3 else None
         if not png_path.exists():
             return [TextContent(type="text", text=f"Render failed: {out_path} not produced")]
 
@@ -103,6 +113,9 @@ _value = {str(out_path)!r}
             from PIL import Image
 
             img = Image.open(png_path)
+            if page_pt:
+                # ImageExport renders into the top-left of an oversized canvas: crop to the page.
+                img = img.crop((0, 0, round(page_pt[0] / 72 * dpi), round(page_pt[1] / 72 * dpi)))
             w, h = img.size
             biggest = max(w, h)
             if biggest > max_pixels:

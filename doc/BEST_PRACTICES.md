@@ -7,6 +7,54 @@ deliverable, not a wall of frames.
 The same content is exposed as the `best_practices` MCP prompt — when an
 agent driving the MCP fetches that prompt, it gets this file verbatim.
 
+## Ads, flyers, posters (and Indian newspaper ads): the 8 rules
+
+1. **Start from a template.** Flow: user describes the need -> `find_templates` (ranked
+   shortlist with a numbered contact sheet and previews; show them to the USER and ask which
+   one, never pick silently; if it says "nothing close", say so) -> `new_from_template(template,
+   save_as)` (returns `editable_fields`: object name, role, current text, char budget, logo and
+   photo slots) -> ask the user for the missing details (business name, offer, dates, phone,
+   address, logo file) -> `fill_template_fields({name or role: text})` (Hindi as Unicode;
+   shrink-to-fit with a 5 pt floor; `logo_path` fills the logo slot) -> `verify_document` ->
+   `render_preview` (look at it) -> `export_press_pdf`. `list_templates` (filter by `query` /
+   `category`) browses the library by text. Only when nothing fits use `create_document`
+   (set all margins to 0 for a full-bleed flyer). `suggest_fonts` lists the installed fonts
+   by role (condensed display, bold headline, slogan italic, Devanagari, Kruti Dev).
+2. **One visual element = one tool call.** A banner, button, price tag, phone bar or title is
+   `create_text_box` (fill, border, rounded corners, padding and text in ONE object; the text
+   is vertically centred and auto-fitted). Do NOT stack `create_rectangle` + `create_text_frame`:
+   that gives double outlines (rectangles get a default black stroke), text that does not follow
+   the box, and boxes that do not wrap their text.
+   - Headline in a panel: `create_text_box(..., font="Impact Regular", fit="fill")` and mixed
+     sizes via `runs=[{"text": "ADMISSION OPEN\n", "size_pt": 40}, {"text": "2027-28", ...}]`.
+   - Circle seal / "Ranked 7th": `create_badge` (ring styles solid, dashed, dotted, double).
+   - Feature list: `create_bullet_list(items, ..., columns=2 or column_split=[9, 6])`.
+   - NOTE / Call bar: `create_label_bar` or a `pill` `create_text_box`.
+   - Swooshes, leaf fans, ragged banner backgrounds, stars: `create_decor_shape`.
+3. **Order is z-order.** Create backgrounds and decor first, text boxes last. Colours may be
+   `#RRGGBB` or basic names; they are defined on the fly (older versions silently used black).
+4. **Fit, never guess sizes.** `fit="shrink"` (default) lowers the font until the text fits,
+   `fit="fill"` finds the largest size that fits (`max_font_pt` caps it), `no_wrap=True` keeps
+   a title on one line. `fit_text_to_frame` does the same for an existing frame. Leading is
+   automatic in every new tool: a plain `create_text_frame` has FIXED 15 pt leading, so 40 pt
+   type overprints itself. If you use primitives, call `set_line_spacing_mode` first.
+5. **Hindi.** Pass Unicode Hindi; the composed tools convert it to Kruti Dev 010 keystrokes and
+   set the font on the Hindi runs only (`set_text_hindi` for an existing frame,
+   `convert_unicode_to_kruti` to just see the conversion). Never put Unicode into a Kruti
+   font and never put Kruti keystrokes into a normal font. Kruti Dev has no bold.
+6. **Press rules.** Nothing below 5 pt (the tools clamp to 5, `verify_document` flags it).
+   Final output: `export_press_pdf(path, standard="X-1a")` (X-3 / X-4 also supported); it
+   refuses to export while verification errors exist.
+7. **Do not group what you may edit.** Objects inside a group cannot be addressed by name, so
+   their text cannot be changed, fitted or verified. The composed tools do not group by default.
+8. **Verify, then look.** Run `verify_document` (overflow incl. linked frames, text < 5 pt,
+   objects off page, missing/changed fonts, Hindi in the wrong font, Kruti in the wrong font,
+   empty frames, missing images, overlaps) until `errors == 0`, then `render_preview` and
+   compare the picture with the brief (alignment, colours, hierarchy) before saying done.
+   `align_objects` / `distribute_objects` fix alignment without guessing millimetres.
+
+Small models: start the server with `SCRIBUS_MCP_TOOLSET=ads` to see ~70 tools instead of ~190.
+
 ## Composition: prefer patterns and layouts over primitives
 
 The MCP exposes both raw primitives (`create_text_frame`, `create_rectangle`)
@@ -28,6 +76,20 @@ highest-level tool that fits the shape of your content.** Examples:
 
 Primitives are for composition glue (decorative shapes, page chrome,
 filling gaps the patterns don't cover yet).
+
+## Pointing words (this / that / selected / here): call `get_selection` first
+
+If the user refers to something by pointing, never guess which object or text they mean. Call
+`get_selection` (interactive mode, read-only). It returns the page, the selected objects (name, type,
+bbox in mm, fill/line colour, font, text preview) and, for one selected text frame, the highlighted range
+(`selection_start`, `selection_length`, `selected_text`), the paragraph/word around it and the formatting.
+Then act: `format_selected_text(color|font|size_pt)` restyles only the highlighted words (or the whole
+frame when nothing is highlighted), `set_selection_colors(fill|line)` recolours the selected objects,
+and the usual name-based tools (`move_object`, `resize_object`, `set_text`, ...) take the returned names.
+In headless mode there is no selection and the tool says so. Text-edit mode and cursor position are only
+reported by a Scribus built with `scripter-selection.patch`; without it `editing`/`cursor` are null and
+only a highlighted range is detectable. Note: the Scripter's own `setTextColor/setFont/setFontSize` act on
+a frame's highlight if one exists, else on all text.
 
 ## Coordinates are millimetres, top-left origin
 
