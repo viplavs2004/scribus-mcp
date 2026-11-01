@@ -504,6 +504,97 @@ def effective_tags(t: dict, data: dict, idx: Index) -> tuple[dict, str]:
     return auto, "auto"
 
 
+# ----------------------------------------------------------------------------- layout hint
+LAYOUT_WORDS = {"double", "single", "border", "justified", "columns", "column", "notice", "text",
+                "logo", "photo", "image", "tender", "auction", "classified", "matrimonial",
+                "legal", "public", "display", "portrait", "landscape", "banner", "headline"}
+ASPECT_TOL = 0.10
+
+
+def parse_layout_hint(hint: Any) -> dict | None:
+    """Normalise ``layout_hint`` (a descriptor string, the dict that ``analyze_reference_image``
+    returns as ``layout_hint``, or the whole analysis) into ``{aspect, w_mm, h_mm, bw, words,
+    text_heavy, border}``. Returns None when there is nothing usable."""
+    if not hint:
+        return None
+    if isinstance(hint, str):
+        hint = {"descriptor": hint}
+    if not isinstance(hint, dict):
+        return None
+    if isinstance(hint.get("layout_hint"), dict):  # the whole analysis was passed
+        hint = hint["layout_hint"]
+    desc = str(hint.get("descriptor") or hint.get("layout_descriptor") or "")
+    w, h = hint.get("width_mm"), hint.get("height_mm")
+    try:
+        w = float(w) if w else None
+        h = float(h) if h else None
+    except (TypeError, ValueError):
+        w = h = None
+    aspect = hint.get("aspect_ratio")
+    try:
+        aspect = float(aspect) if aspect else None
+    except (TypeError, ValueError):
+        aspect = None
+    if aspect is None and w and h:
+        aspect = w / h
+    bw = hint.get("black_and_white")
+    if bw is None:
+        low = desc.lower()
+        bw = True if ("black and white" in low or "black & white" in low) else (False if "colour" in low else None)
+    words = {t for t in tokens(desc) if t in LAYOUT_WORDS}
+    lines = hint.get("body_lines")
+    text_only = hint.get("text_only")
+    if text_only is None:
+        text_only = "text only" in desc.lower()
+    text_heavy = bool(text_only and isinstance(lines, (int, float)) and lines >= 8)
+    out = {"aspect": aspect, "w_mm": w, "h_mm": h, "bw": bw, "words": sorted(words),
+           "text_heavy": text_heavy, "border": hint.get("border")}
+    if not (aspect or words or bw is not None or text_heavy):
+        return None
+    return out
+
+
+def layout_score(t: dict, tags: dict, lay: dict, q_has_size: bool) -> tuple[float, list[str]]:
+    """Bonus / penalty points from a reference-image layout hint (deterministic)."""
+    pts, why = 0.0, []
+    sla = t.get("sla", {})
+    wmm, hmm = sla.get("w_mm"), sla.get("h_mm")
+    if lay.get("aspect") and wmm and hmm:
+        d = abs((wmm / hmm) / lay["aspect"] - 1.0)
+        if d <= ASPECT_TOL:
+            pts += 5.0 * (1.0 - 0.5 * d / ASPECT_TOL)
+            why.append(f"layout: page shape {wmm / hmm:.2f} matches the picture {lay['aspect']:.2f} (within 10%)")
+        elif d <= 0.25:
+            pts += 2.0 * (1.0 - (d - ASPECT_TOL) / 0.15)
+            why.append(f"layout: page shape {wmm / hmm:.2f} is near the picture {lay['aspect']:.2f}")
+        elif d > 0.4:
+            pts -= 1.5
+            why.append(f"layout: page shape {wmm / hmm:.2f} differs from the picture {lay['aspect']:.2f}")
+    if lay.get("w_mm") and lay.get("h_mm") and wmm and not q_has_size:
+        fs, _ = size_fit({"kind": "cm", "w_mm": lay["w_mm"], "h_mm": lay["h_mm"], "label": "picture"},
+                         wmm, hmm, [])
+        if fs >= 0.45:
+            pts += 4.0 * fs
+            why.append(f"layout: size {size_label(wmm, hmm)} near the picture's {lay['w_mm']:g} x {lay['h_mm']:g} mm")
+    tc_ = tags.get("colour")
+    if lay.get("bw") is not None and tc_:
+        if (tc_ == "bw") == bool(lay["bw"]):
+            pts += 2.0
+            why.append("layout: " + ("black & white like the picture" if lay["bw"] else "colour like the picture"))
+        else:
+            pts -= 2.0
+    kinds = set(tags.get("kind", []))
+    if lay.get("text_heavy") and "notice" in kinds:
+        pts += 3.0
+        why.append("layout: text-heavy picture, template is a notice")
+    bag = _bag(t, tags)
+    hits = [w_ for w_ in lay.get("words", []) if w_ in bag]
+    if hits:
+        pts += min(4.0, float(len(hits)))
+        why.append("layout words: " + ", ".join(hits[:4]))
+    return pts, why
+
+
 # ----------------------------------------------------------------------------- query
 def parse_query(requirement: str, hints: dict, idx: Index) -> dict:
     """Turn the requirement text + optional hints into a structured query."""
@@ -548,7 +639,8 @@ def parse_query(requirement: str, hints: dict, idx: Index) -> dict:
     stop = idx.stop
     free = [t for t in scan["unmatched"] if t not in stop and len(t) >= 3 and not t.isdigit()
             and not re.fullmatch(r"[\d.x/\-%]+", t)]
-    return {"raw": requirement, "size": size, "concepts": concepts, "kinds": kinds,
+    return {"layout": parse_layout_hint(hints.get("layout_hint")),
+            "raw": requirement, "size": size, "concepts": concepts, "kinds": kinds,
             "explicit_kind": explicit_kind or None, "colour": colour, "language": lang,
             "free_words": free, "fuzzy": scan["fuzzy"], "category": (hints.get("category") or "").strip()}
 
@@ -652,6 +744,12 @@ def score_template(t: dict, tags: dict, q: dict, idx: Index) -> dict:
     if fw:
         pts += min(6.0, 2.0 * len(fw))
         why.append("words: " + ", ".join(fw[:4]))
+    # layout hint from a reference picture
+    lay_pts = 0.0
+    if q.get("layout"):
+        lay_pts, lay_why = layout_score(t, tags, q["layout"], bool(q["size"]))
+        pts += lay_pts
+        why += lay_why
     # generic fallback bonus and category filter
     if tags.get("generic"):
         pts += 1
@@ -661,7 +759,7 @@ def score_template(t: dict, tags: dict, q: dict, idx: Index) -> dict:
     if exact_topic:
         evidence = "strong"
         pts += 3
-    elif matched_topics or (q["kinds"] and hit) or fw or (
+    elif matched_topics or (q["kinds"] and hit) or fw or lay_pts >= 5.0 or (
             fit_cls == "exact" and not (UNRELATED_KINDS & set(tk))):
         evidence = "partial"
     return {"score": round(pts, 2), "why": why, "evidence": evidence, "size_fit": fit_cls,
@@ -674,12 +772,13 @@ def _lang_label(tl: str | None) -> str:
             "bilingual": "Hindi + English"}.get(tl or "", tl or "unknown")
 
 
-def search(requirement: str, dirs: list[Path], *, max_results: int = 5, **hints: str) -> dict:
+def search(requirement: str, dirs: list[Path], *, max_results: int = 5, layout_hint: Any = None,
+           **hints: str) -> dict:
     """Pure ranking function (no images). Returns the JSON-able result dict."""
     data = load_data()
     idx = get_index()
     lib = load_library(dirs)
-    q = parse_query(requirement, hints, idx)
+    q = parse_query(requirement, {**hints, "layout_hint": layout_hint}, idx)
     scored = []
     n_auto = 0
     auto_ids = []
@@ -724,7 +823,8 @@ def search(requirement: str, dirs: list[Path], *, max_results: int = 5, **hints:
     parsed = {"size": q["size"]["label"] if q["size"] else None,
               "size_note": (q["size"] or {}).get("note"),
               "topics": q["concepts"], "kinds": q["kinds"], "colour": q["colour"],
-              "language": q["language"], "ignored_words": q["free_words"][:10]}
+              "language": q["language"], "ignored_words": q["free_words"][:10],
+              "layout_hint": q["layout"]}
     if quality == "good":
         msg = "Found close matches. Show the previews to the user and ask which to start from."
     elif quality == "partial":
@@ -858,6 +958,7 @@ def register(mcp, ctx: ServerCtx) -> None:
         colour: str = "",
         kind: str = "",
         max_results: int = 5,
+        layout_hint: str | dict[str, Any] | None = None,
     ) -> list:
         """CALL THIS when the user wants to start a new ad / flyer / notice and describes what
         they need (English, Hindi, Hinglish; newspaper sizes like '4x12', '4 col x 12 cm',
@@ -873,8 +974,16 @@ def register(mcp, ctx: ServerCtx) -> None:
         'brochure'|...), ``category`` (e.g. 'Newspaper Ads'), ``max_results`` (default 5).
         The chosen ``id`` goes to ``new_from_template(template=id, save_as=...)``, which returns
         the editable fields.
+
+        ``layout_hint``: when the user gave a PHOTO of the notice / ad, run
+        ``analyze_reference_image`` first and pass its ``layout_hint`` here unchanged (or just a
+        plain descriptor such as 'double border, justified body ~17 lines, text only'). It adds
+        ranking points for templates whose page shape is within 10 % of the picture's, whose
+        size is near the picture's real size, and whose colour / kind / keywords match; it never
+        replaces ``requirement`` (still say what the ad is).
         """
         res = search(requirement, library_dirs(ctx.config.scribus_bin), max_results=max_results,
+                     layout_hint=layout_hint,
                      category=category, size=size, language=language, colour=colour, kind=kind)
         return build_response(res)
 

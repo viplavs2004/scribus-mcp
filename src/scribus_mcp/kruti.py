@@ -187,6 +187,8 @@ def _convert_hindi(s):
             out.append(DANDA[ch]); i += 1; continue
         if ch == '॰':                                              # abbreviation sign, typed as a 0
             out.append('0'); i += 1; continue
+        if ch == 'ऑ':                                          # ऑ: no key of its own, written as आ + ॉ
+            out.append(_convert_hindi('आॉ')); i += 1; continue
         if ch in VOWELS:
             out.append(VOWELS[ch]); i += 1; continue
         if ch in SIGNS:

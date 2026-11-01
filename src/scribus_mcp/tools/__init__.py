@@ -22,6 +22,7 @@ from scribus_mcp.tools import (
     markdown,
     pages,
     patterns,
+    reference_image,
     search,
     selection,
     shapes,
@@ -57,6 +58,7 @@ def register_all(mcp, ctx) -> None:
     templates.register(mcp, ctx)
     template_search.register(mcp, ctx)
     template_fields.register(mcp, ctx)
+    reference_image.register(mcp, ctx)
     hindi.register(mcp, ctx)
     verify.register(mcp, ctx)
     selection.register(mcp, ctx)
@@ -67,7 +69,9 @@ def register_all(mcp, ctx) -> None:
 # for the odd thing the composed ones cannot do.
 ADS_TOOLSET: tuple[str, ...] = (
     # start / documents
-    "list_templates", "find_templates", "new_from_template", "fill_template_fields", "create_document", "open_document",
+    "list_templates", "find_templates", "analyze_reference_image", "compare_to_reference",
+    "new_from_template",
+    "fill_template_fields", "create_document", "open_document",
     "save_document", "save_document_as", "close_document", "get_document_info", "add_page",
     "goto_page", "get_page_size", "set_page_margins",
     # what the user points at (interactive only): get_selection FIRST for this/that/selected
@@ -104,6 +108,7 @@ def apply_toolset(mcp, name: str | None) -> int:
     if name.lower() != "ads":
         raise ValueError(f"unknown SCRIBUS_MCP_TOOLSET {name!r} (use 'ads' or 'all')")
     keep = set(ADS_TOOLSET)
+    keep.add("run_script")  # only registered when SCRIBUS_MCP_RUN_SCRIPT=1, so safe to always keep
     removed = 0
     for tool in list(mcp._tool_manager.list_tools()):
         if tool.name not in keep:

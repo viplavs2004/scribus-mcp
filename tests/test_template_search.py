@@ -193,7 +193,7 @@ def test_bad_byte_in_template_xml(tmp_path):
     with pytest.raises(UnicodeDecodeError):
         raw.decode("utf-8")
     lib2 = build_library(tmp_path / "bad", xml_bytes=raw)
-    assert len(ts.load_library([lib2])) == 89
+    assert len(ts.load_library([lib2])) == len(json.loads((FIX / "sla_facts.json").read_text(encoding="utf-8")))
     assert top(lib2, "jewellery sale")[0] == "news_disp_jewellery_half_horizontal"
 
 
