@@ -53,7 +53,7 @@ agent driving the MCP fetches that prompt, it gets this file verbatim.
    compare the picture with the brief (alignment, colours, hierarchy) before saying done.
    `align_objects` / `distribute_objects` fix alignment without guessing millimetres.
 
-Small models: start the server with `SCRIBUS_MCP_TOOLSET=ads` to see ~70 tools instead of ~190.
+Small models: start the server with `SCRIBUS_MCP_TOOLSET=ads` to see ~70 tools instead of 362.
 
 ## Composition: prefer patterns and layouts over primitives
 
@@ -315,7 +315,7 @@ A small number of tools wrap Scripter calls that only exist on Scribus 1.7+. If 
 }
 ```
 
-Surface this verbatim to the user — `required_version` and `actual_version` are stable fields you can pattern-match on. Don't retry the same tool, and don't paper over with primitives unless the user asks. Currently only `create_qr_code_block` is gated; see [doc/SUPPORT.md](SUPPORT.md) for the matrix.
+Surface this verbatim to the user — `required_version` and `actual_version` are stable fields you can pattern-match on. Don't retry the same tool, and don't paper over with primitives unless the user asks. Currently only `create_qr_code_block` is gated that way. The tools in `tools/extended/` call Scribus 1.7.4 names directly and are not version-gated; on 1.6 a missing name comes back as `ok: false` with Scribus's error. See [doc/SUPPORT.md](SUPPORT.md) for the matrix.
 
 ## When in doubt
 

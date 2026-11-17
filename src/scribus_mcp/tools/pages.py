@@ -102,9 +102,17 @@ def register(mcp, ctx: ServerCtx) -> None:
         if position not in _MOVE_POSITION:
             return {"ok": False, "error": f"position must be one of {sorted(_MOVE_POSITION)}"}
         backend = await get_backend(ctx, mode)
-        result = await backend.call(
-            "movePage", from_page, to_page, _MOVE_POSITION[position]
+        where = _MOVE_POSITION[position]
+        body = (
+            "import scribus as _s\n"
+            "if not hasattr(_s, 'movePage'):\n"
+            "    raise RuntimeError(\n"
+            "        'This Scribus build has no scribus.movePage. '\n"
+            "        'Reorder pages from the page list, or bring pages in with import_pages.'\n"
+            "    )\n"
+            f"_value = _s.movePage({int(from_page)}, {int(to_page)}, {where})\n"
         )
+        result = await backend.script(body, result_expr="_value")
         return {"ok": result.ok, "value": result.unwrap_or(), "error": result.error}
 
     @mcp.tool()
@@ -159,9 +167,14 @@ def register(mcp, ctx: ServerCtx) -> None:
         reorders the args for you so the kwargs read naturally.
         """
         backend = await get_backend(ctx, mode)
+        # 1.6 named this ``setPageMargins``. 1.7.4 only has ``setMargins``
+        # with the same (left, right, top, bottom) order.
         body = (
             _FORCE_MM
-            + f"_value = _s.setPageMargins({left_mm}, {right_mm}, {top_mm}, {bottom_mm})\n"
+            + "if hasattr(_s, 'setPageMargins'):\n"
+            + f"    _value = _s.setPageMargins({left_mm}, {right_mm}, {top_mm}, {bottom_mm})\n"
+            + "else:\n"
+            + f"    _value = _s.setMargins({left_mm}, {right_mm}, {top_mm}, {bottom_mm})\n"
         )
         result = await backend.script(body, result_expr="_value")
         return {"ok": result.ok, "value": result.unwrap_or(), "error": result.error}

@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- **167 Scripter tools** in
+  [src/scribus_mcp/tools/extended/](src/scribus_mcp/tools/extended/),
+  checked against Scribus 1.7.4. The server now registers 362 tools.
+  Coverage includes native tables, text ranges, chains, tracking and
+  font features, object clipboard, stacking and properties, paragraph,
+  character and line styles, Lab and spot colors, blend modes and
+  gradient stops, bleeds, baseline, guides and page import, image
+  inspection and vector placement, layer flags, PDF bookmarks, and
+  EPS / PDF-options files. The per-function matrix is
+  [doc/SUPPORT.md](doc/SUPPORT.md). These tools are not part of the
+  `SCRIBUS_MCP_TOOLSET=ads` subset.
+
+### Changed
+
+- **1.7.4 names for calls that 1.6 spelled differently.**
+  `set_page_margins` uses `setMargins` when `setPageMargins` is absent.
+  `rename_object` uses `setNewName`. `outline_text` uses `outlineText`.
+  `get_object_name` confirms the object with `objectExists` when
+  `getName` is absent. Underline, strikethrough, outline, and shadow
+  go through `setFontFeatures` on 1.7; point widths apply only when
+  the 1.6 functions exist. `move_page` reports that 1.7.4 has no
+  `movePage` and points at `import_pages`. `set_layer_locked` passes
+  the opposite flag of the one 1.7.4's `setLayerLocked` stores, so
+  `locked=true` matches `isLayerLocked`.
+
 ## [1.3.1] — 2026-05-06
 
 Timeline polish for alternating mode (`label_rows>=2`) and a quality-of-life

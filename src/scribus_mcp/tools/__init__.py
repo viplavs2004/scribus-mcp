@@ -4,18 +4,16 @@ attaches its tools to the FastMCP server."""
 from scribus_mcp.tools import (
     ad_boxes,
     arrange,
-    templates,
-    template_fields,
-    template_search,
-    decor,
     colors,
+    decor,
     document,
     escape,
     export,
+    extended,
     fonts,
     forms,
-    hindi,
     frames,
+    hindi,
     images,
     layers,
     layouts,
@@ -27,6 +25,9 @@ from scribus_mcp.tools import (
     shapes,
     styles,
     styling,
+    template_fields,
+    template_search,
+    templates,
     text,
     verify,
 )
@@ -51,6 +52,7 @@ def register_all(mcp, ctx) -> None:
     layouts.register(mcp, ctx)
     forms.register(mcp, ctx)
     escape.register(mcp, ctx)
+    extended.register(mcp, ctx)
     ad_boxes.register(mcp, ctx)
     decor.register(mcp, ctx)
     arrange.register(mcp, ctx)
@@ -63,7 +65,7 @@ def register_all(mcp, ctx) -> None:
 
 
 # Compact tool set for small models / ad and flyer work: ``SCRIBUS_MCP_TOOLSET=ads`` keeps only
-# these tools (about 60 of ~190). The composed tools come first; primitives stay available
+# these tools (about 60 of 362). The composed tools come first; primitives stay available
 # for the odd thing the composed ones cannot do.
 ADS_TOOLSET: tuple[str, ...] = (
     # start / documents

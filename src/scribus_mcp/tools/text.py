@@ -16,6 +16,29 @@ FIRST_LINE_OFFSET = {
 }
 
 
+def font_feature_script(name: str, feature: str, enable: bool, legacy_fn: str, legacy_args: str) -> str:
+    """Call a 1.6 text-effect function, or set an OpenType/font feature on 1.7.
+
+    Scribus 1.7.4 dropped ``setUnderline`` / ``setStrikethru`` / ``setOutline`` /
+    ``setShadow``. The replacement is ``setFontFeatures`` with a comma-separated
+    feature string (``underline``, ``strike``, ``outline``, ``shadowed``).
+    Width and offset arguments only apply when the legacy function exists.
+    """
+    return (
+        "import scribus as _s\n"
+        f"if hasattr(_s, {legacy_fn!r}):\n"
+        f"    _value = _s.{legacy_fn}({legacy_args})\n"
+        "else:\n"
+        f"    _raw = _s.getFontFeatures({name!r}) or ''\n"
+        f"    _parts = [p for p in _raw.split(',') if p and p != {feature!r}]\n"
+        f"    if {bool(enable)}:\n"
+        f"        _parts.append({feature!r})\n"
+        "    _joined = ','.join(_parts)\n"
+        f"    _s.setFontFeatures(_joined, {name!r})\n"
+        "    _value = _joined\n"
+    )
+
+
 def register(mcp, ctx: ServerCtx) -> None:
     @mcp.tool()
     async def set_text(name: str, text: str, mode: Mode = "auto") -> dict:
@@ -210,9 +233,22 @@ def register(mcp, ctx: ServerCtx) -> None:
         (Scribus's convention). Pass ``-1`` for either to use the font's
         default underline metrics. See ``set_underline_pt`` for a
         point-based variant.
+
+        On Scribus 1.7, which has no ``setUnderline``, this toggles the
+        ``underline`` font feature. ``width_hpt == 0`` turns it off;
+        the offset is not applied.
         """
         backend = await get_backend(ctx, mode)
-        result = await backend.call("setUnderline", int(offset_hpt), int(width_hpt), name)
+        result = await backend.script(
+            font_feature_script(
+                name,
+                "underline",
+                int(width_hpt) != 0,
+                "setUnderline",
+                f"{int(offset_hpt)}, {int(width_hpt)}, {name!r}",
+            ),
+            result_expr="_value",
+        )
         return {"ok": result.ok, "value": result.unwrap_or(), "error": result.error}
 
     @mcp.tool()
@@ -227,12 +263,22 @@ def register(mcp, ctx: ServerCtx) -> None:
         ``offset_pt`` is the distance below the baseline; ``width_pt`` is
         the line thickness. Pass ``-1.0`` for either to use the font's
         default. Internally multiplied by 100 (Scribus stores these as
-        1/100 pt).
+        1/100 pt). On Scribus 1.7 this toggles the ``underline`` font
+        feature; ``width_pt == 0`` turns it off.
         """
         backend = await get_backend(ctx, mode)
         offset_hpt = -1 if offset_pt == -1.0 else round(offset_pt * 100)
         width_hpt = -1 if width_pt == -1.0 else round(width_pt * 100)
-        result = await backend.call("setUnderline", offset_hpt, width_hpt, name)
+        result = await backend.script(
+            font_feature_script(
+                name,
+                "underline",
+                width_hpt != 0,
+                "setUnderline",
+                f"{offset_hpt}, {width_hpt}, {name!r}",
+            ),
+            result_expr="_value",
+        )
         return {"ok": result.ok, "value": result.unwrap_or(), "error": result.error}
 
     @mcp.tool()
@@ -247,10 +293,20 @@ def register(mcp, ctx: ServerCtx) -> None:
         ``offset_hpt`` and ``width_hpt`` are in hundredths of a point;
         ``-1`` means font default (same convention as ``set_underline``).
         See ``set_strikethrough_pt`` for a point-based variant.
+
+        On Scribus 1.7 this toggles the ``strike`` font feature.
+        ``width_hpt == 0`` turns it off.
         """
         backend = await get_backend(ctx, mode)
-        result = await backend.call(
-            "setStrikethru", int(offset_hpt), int(width_hpt), name
+        result = await backend.script(
+            font_feature_script(
+                name,
+                "strike",
+                int(width_hpt) != 0,
+                "setStrikethru",
+                f"{int(offset_hpt)}, {int(width_hpt)}, {name!r}",
+            ),
+            result_expr="_value",
         )
         return {"ok": result.ok, "value": result.unwrap_or(), "error": result.error}
 
@@ -265,11 +321,22 @@ def register(mcp, ctx: ServerCtx) -> None:
 
         Pass ``-1.0`` for either arg to use the font's default. Same
         conversion as ``set_underline_pt`` (× 100 → Scribus's 1/100 pt).
+        On Scribus 1.7 this toggles the ``strike`` font feature;
+        ``width_pt == 0`` turns it off.
         """
         backend = await get_backend(ctx, mode)
         offset_hpt = -1 if offset_pt == -1.0 else round(offset_pt * 100)
         width_hpt = -1 if width_pt == -1.0 else round(width_pt * 100)
-        result = await backend.call("setStrikethru", offset_hpt, width_hpt, name)
+        result = await backend.script(
+            font_feature_script(
+                name,
+                "strike",
+                width_hpt != 0,
+                "setStrikethru",
+                f"{offset_hpt}, {width_hpt}, {name!r}",
+            ),
+            result_expr="_value",
+        )
         return {"ok": result.ok, "value": result.unwrap_or(), "error": result.error}
 
     @mcp.tool()
@@ -279,21 +346,45 @@ def register(mcp, ctx: ServerCtx) -> None:
         ``width_hpt`` is in hundredths of a point. ``0`` disables the
         outline; positive values draw a stroke that thickness around
         each glyph. See ``set_outline_pt`` for a point-based variant.
+
+        On Scribus 1.7 this toggles the ``outline`` font feature.
+        The width is only applied when ``setOutline`` exists.
         """
         if width_hpt < 0:
             return {"ok": False, "error": "width_hpt must be >= 0"}
         backend = await get_backend(ctx, mode)
-        result = await backend.call("setOutline", int(width_hpt), name)
+        result = await backend.script(
+            font_feature_script(
+                name,
+                "outline",
+                int(width_hpt) != 0,
+                "setOutline",
+                f"{int(width_hpt)}, {name!r}",
+            ),
+            result_expr="_value",
+        )
         return {"ok": result.ok, "value": result.unwrap_or(), "error": result.error}
 
     @mcp.tool()
     async def set_outline_pt(name: str, width_pt: float, mode: Mode = "auto") -> dict:
-        """Set the text outline width in points. ``0.0`` disables the outline."""
+        """Set the text outline width in points. ``0.0`` disables the outline.
+
+        On Scribus 1.7 this toggles the ``outline`` font feature.
+        """
         if width_pt < 0:
             return {"ok": False, "error": "width_pt must be >= 0"}
         backend = await get_backend(ctx, mode)
         width_hpt = round(width_pt * 100)
-        result = await backend.call("setOutline", width_hpt, name)
+        result = await backend.script(
+            font_feature_script(
+                name,
+                "outline",
+                width_hpt != 0,
+                "setOutline",
+                f"{width_hpt}, {name!r}",
+            ),
+            result_expr="_value",
+        )
         return {"ok": result.ok, "value": result.unwrap_or(), "error": result.error}
 
     @mcp.tool()
@@ -308,10 +399,20 @@ def register(mcp, ctx: ServerCtx) -> None:
         Both offsets are in hundredths of a point. Positive ``y_offset_hpt``
         moves the shadow down; positive ``x_offset_hpt`` moves it right.
         See ``set_shadow_pt`` for a point-based variant.
+
+        On Scribus 1.7 this toggles the ``shadowed`` font feature.
+        Both offsets ``0`` turns it off. Offsets are not applied.
         """
         backend = await get_backend(ctx, mode)
-        result = await backend.call(
-            "setShadow", int(x_offset_hpt), int(y_offset_hpt), name
+        result = await backend.script(
+            font_feature_script(
+                name,
+                "shadowed",
+                int(x_offset_hpt) != 0 or int(y_offset_hpt) != 0,
+                "setShadow",
+                f"{int(x_offset_hpt)}, {int(y_offset_hpt)}, {name!r}",
+            ),
+            result_expr="_value",
         )
         return {"ok": result.ok, "value": result.unwrap_or(), "error": result.error}
 
@@ -325,12 +426,22 @@ def register(mcp, ctx: ServerCtx) -> None:
         """Set drop-shadow offsets in points.
 
         Positive ``y_offset_pt`` moves the shadow down; positive
-        ``x_offset_pt`` moves it right.
+        ``x_offset_pt`` moves it right. On Scribus 1.7 this toggles the
+        ``shadowed`` font feature; both offsets ``0`` turns it off.
         """
         backend = await get_backend(ctx, mode)
         x_hpt = round(x_offset_pt * 100)
         y_hpt = round(y_offset_pt * 100)
-        result = await backend.call("setShadow", x_hpt, y_hpt, name)
+        result = await backend.script(
+            font_feature_script(
+                name,
+                "shadowed",
+                x_hpt != 0 or y_hpt != 0,
+                "setShadow",
+                f"{x_hpt}, {y_hpt}, {name!r}",
+            ),
+            result_expr="_value",
+        )
         return {"ok": result.ok, "value": result.unwrap_or(), "error": result.error}
 
     @mcp.tool()
