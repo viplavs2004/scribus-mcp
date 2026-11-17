@@ -180,18 +180,13 @@ def register(mcp, ctx: ServerCtx) -> None:
         the document. ``shade1`` / ``shade2`` are 0–100 (tint per stop).
 
         Use ``type='none'`` to clear the gradient (the object falls back
-        to its plain fill color). For multi-stop or freeform gradients,
-        Scribus's Scripter API only exposes two stops; build them
-        manually via the Scribus UI and import the resulting .sla.
+        to its plain fill color). Add further stops with
+        ``set_gradient_stop``, and place the ramp with
+        ``set_gradient_vector``.
 
-        **Radial caveat**: Scribus 1.7's ``setGradientFill`` anchors the
-        radial gradient at the object's bbox corner by default — the
-        inner color sits in the corner, not the center. Centering the
-        gradient requires ``setGradientVector``, but its signature in
-        1.7 takes 8+ numeric args (start, end, focal, scale, skew) that
-        we don't yet wrap. To get a centered radial today, design the
-        object in the Scribus UI and load its .sla, or use a horizontal
-        / vertical / diagonal gradient in place of radial.
+        **Radial caveat**: ``setGradientFill`` anchors a radial gradient
+        at the object's corner. Call ``set_gradient_vector`` afterwards
+        if the ramp should start somewhere else.
         """
         if type not in GRADIENT_TYPES:
             return {

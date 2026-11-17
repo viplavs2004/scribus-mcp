@@ -148,7 +148,18 @@ def register(mcp, ctx: ServerCtx) -> None:
         check after ``rename_object``.
         """
         backend = await get_backend(ctx, mode)
-        result = await backend.call("getName", name)
+        # ``getName`` was removed. On current Scribus the name you already
+        # hold is the item name; confirm the object exists.
+        body = (
+            "import scribus as _s\n"
+            f"if hasattr(_s, 'getName'):\n"
+            f"    _value = _s.getName({name!r})\n"
+            f"elif _s.objectExists({name!r}):\n"
+            f"    _value = {name!r}\n"
+            f"else:\n"
+            f"    raise ValueError('no such object: ' + {name!r})\n"
+        )
+        result = await backend.script(body, result_expr="_value")
         return {
             "ok": result.ok,
             "name": result.unwrap_or() or "",
@@ -163,7 +174,15 @@ def register(mcp, ctx: ServerCtx) -> None:
         existing object, so the returned name is authoritative.
         """
         backend = await get_backend(ctx, mode)
-        result = await backend.call("renameObject", old_name, new_name)
+        # 1.6 had ``renameObject(old, new)``. 1.7.4 has ``setNewName(new, old)``.
+        body = (
+            "import scribus as _s\n"
+            "if hasattr(_s, 'renameObject'):\n"
+            f"    _value = _s.renameObject({old_name!r}, {new_name!r})\n"
+            "else:\n"
+            f"    _value = _s.setNewName({new_name!r}, {old_name!r})\n"
+        )
+        result = await backend.script(body, result_expr="_value")
         return {
             "ok": result.ok,
             "name": result.unwrap_or() or "",
@@ -265,7 +284,11 @@ def register(mcp, ctx: ServerCtx) -> None:
             "import scribus as _s\n"
             "_before = set(_it[0] for _it in (_s.getPageItems() or []))\n"
             f"_s.layoutText({name!r})\n"
-            f"_s.traceText({name!r})\n"
+            # ``traceText`` is the deprecated alias of ``outlineText``.
+            f"if hasattr(_s, 'outlineText'):\n"
+            f"    _s.outlineText({name!r})\n"
+            "else:\n"
+            f"    _s.traceText({name!r})\n"
             "_after = set(_it[0] for _it in (_s.getPageItems() or []))\n"
             "_value = sorted(_after - _before)\n"
         )

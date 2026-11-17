@@ -57,14 +57,15 @@ On Linux + 1.6.3, one skip is the 1.7-gated `create_qr_code_block` (see [Scribus
 
 - [doc/BEST_PRACTICES.md](doc/BEST_PRACTICES.md) — house style for driving the MCP (also exposed as the `best_practices` prompt so an LLM session can pull it directly).
 - [doc/COOKBOOK.md](doc/COOKBOOK.md) — end-to-end recipes for one-pagers, manuals, dashboards, comparison reports, code walkthroughs, PDF forms.
-- [doc/SUPPORT.md](doc/SUPPORT.md) — per-Scripter-function support matrix (~140 functions tabulated).
+- [doc/SUPPORT.md](doc/SUPPORT.md) — per-Scripter-function support matrix.
 - [doc/threading-and-scribus.md](doc/threading-and-scribus.md) — architectural rationale behind the bridge.
 
 ## What's in the box
 
-- **~125 MCP tools** spanning:
+- **362 MCP tools** spanning:
   - **Primitives**: document lifecycle, pages, text/image/shape frames, text content + flow + formatting, paragraph & character styles, colors, layers, search/replace.
-  - **Object styling**: fill / stroke / shade / transparency / line caps & joins / corner radius / 2-stop gradients.
+  - **Object styling**: fill / stroke / shade / transparency / blend modes / line caps & joins / corner radius / gradient stops and vector.
+  - **Scripter coverage added for 1.7** ([extended package](src/scribus_mcp/tools/extended/)): native tables, text ranges and font features, object clipboard and stacking, paragraph/character/line styles, Lab and spot colors, bleeds and guides, image inspection, layer flags, PDF bookmarks. Checked against Scribus 1.7.4. See [doc/SUPPORT.md](doc/SUPPORT.md).
   - **Typography**: `list_fonts`, `list_fonts_detailed`, `list_monospace_fonts`, `font_is_available`, plus pre-launch *custom font staging* via `install_custom_font` (copies to a managed dir + patches Scribus's prefs `ExtraFontDirs`).
   - **Export**: `export_pdf`, `render_page_to_image` (inlines a base64 PNG straight into the model's context), `preflight_check`.
   - **PDF interactivity** ([forms package](src/scribus_mcp/tools/forms/)): 6 form fields (text, checkbox, radio, combo, list, push button), 4 annotation types (link, URI, file, sticky-note), JS action setter/getter for all 10 field events.
@@ -80,7 +81,7 @@ On Linux + 1.6.3, one skip is the 1.7-gated `create_qr_code_block` (see [Scribus
 ## Requirements
 
 - **Python 3.11+** for the MCP server.
-- **Scribus 1.7.x** for the full tool surface. **Scribus 1.6.x** is supported with a small handful of features gated off — see [Scribus version requirements per feature](#scribus-version-requirements-per-feature) below. On Linux Scribus links against system Python — see the distro caveat below.
+- **Scribus 1.7.x** for the full tool surface (the extended Scripter tools were checked on 1.7.4). **Scribus 1.6.x** runs the original tools, with `create_qr_code_block` gated off — see [Scribus version requirements per feature](#scribus-version-requirements-per-feature) below. On Linux Scribus links against system Python — see the distro caveat below.
 - For the **interactive** backend: a running Scribus window with the bridge `.spy` file loaded.
 - For **headless on Linux servers without a display**: `xvfb` (virtual framebuffer).
 
@@ -97,13 +98,15 @@ The MCP works on both Scribus 1.6 and 1.7. A small number of tools wrap Scripter
 }
 ```
 
-The version probe runs once per backend instance (cached via `scribus.scribus_version_info`), so the floor check costs effectively nothing on subsequent calls. An LLM client driving the MCP can match on `required_version` to surface a clean "upgrade Scribus" suggestion to the user.
+The version probe runs once per backend instance (cached from `scribus.SCRIBUS_VERSION_INFO`), so the floor check costs effectively nothing on subsequent calls. An LLM client driving the MCP can match on `required_version` to surface a clean "upgrade Scribus" suggestion to the user.
 
 | Tool | Scripter call | Min Scribus | Notes |
 |---|---|---|---|
 | `create_qr_code_block` | `scribus.createBarcode` | **1.7.0** | Also needs Ghostscript on the host. |
 
-Everything else in the tool surface (~140 functions) works on both 1.6 and 1.7. If you hit a Scripter `AttributeError` from a tool not in this table, it's likely a missing gate — please file an issue.
+The rest of the original tool surface works on both 1.6 and 1.7. Where 1.7.4 renamed a call, the tool follows the name that exists: `setPageMargins` or `setMargins`, `renameObject` or `setNewName`, `traceText` or `outlineText`. Underline, strikethrough, outline, and shadow use `setFontFeatures` (`underline`, `strike`, `outline`, `shadowed`) when the 1.6 functions are absent; width and offset apply only on the 1.6 path. `move_page` needs `scribus.movePage`, which 1.7.4 does not provide, and that build returns an error pointing at `import_pages`.
+
+The tools in [src/scribus_mcp/tools/extended/](src/scribus_mcp/tools/extended/) were checked on Scribus 1.7.4. On 1.6 a missing Scripter name comes back as `ok: false` with the error from Scribus. If you hit a Scripter `AttributeError` from a tool that is not in the table above, please file an issue.
 
 ### Linux: Python version caveat
 
