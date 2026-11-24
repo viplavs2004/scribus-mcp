@@ -806,16 +806,16 @@
 "pages": 1,
 "w_mm": 68.0,
 "h_mm": 65.0,
-"kruti": true,
-"devanagari": false,
-"bw": true,
-"chromatic_colors": [],
 "fonts": [
 "Arial Regular",
 "Kruti Dev 010 Regular",
 "Times New Roman Regular"
 ],
-"text": "xzsVj ukS,Mk vkS|ksfxd fodkl çkfèkdj.k Hkw[k.M la[;k&amp;1] lSDVj ds0ih0&amp;4 x",
+"kruti": true,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"text": "xzsVj ukS,Mk vkS|ksfxd fodkl çkfèkdj.k Hkw[k.M la[;k&amp;1] lSDVj ds0ih0&amp;4 xzsVj ukS,Mk flVh ftyk&amp;xkSrecq)uxj] m0ç0A lkoZtfud lwpuk loZ lkèkkj.k dks lwfpr fd;k tkrk gS fd  Flat No- 1203, 12th Floor, Tower- D4, Area-109.62 Sqm., Nirala Aspire Gh&amp;03, Sector-16, Greater Noida  tks fd  Mr. Kamlesh Kumar Singh  fuoklh 8] 1]  Patna  ds uke ij mi fucaèku dk;kZy;] lnj xkSrecq) uxj esa iath—r g",
 "indexed": true
 },
 "news_court_notice_3x10": {
@@ -1603,6 +1603,22 @@
 "Kruti Dev 010 Regular"
 ],
 "text": "  uke ifjorZu lwpuk eSa ¼iqjkuk uke½] iq= @ iq=h Jh ¼firk dk uke½] fuoklh ¼iwjk ",
+"indexed": true
+},
+"news_bw_notice_nagar_palika_63x66": {
+"pages": 1,
+"w_mm": 63.4,
+"h_mm": 66.0,
+"fonts": [
+"Arial Bold",
+"Arial Regular",
+"Kruti Dev 010 Regular"
+],
+"kruti": true,
+"devanagari": false,
+"bw": true,
+"chromatic_colors": [],
+"text": "dk;kZy; uxj ikfydk ifj&quot;kn] nknjh ¼xkSrecq)uxj½ i=kad% 2869 @ u0ik0ifj0nk0 @ d0fo0 @ 2025&amp;26   fnukad% 02-09-2026 -:  lkoZtfud lwpuk  :- loZlkèkkj.k dks lwfpr fd;k tkrk gS fd uxj ikfydk ifj&quot;kn] nknjh ds xtV çdk'ku fnukad 22-11-2025 ds vUrxZr vkoklh; Hkou la0&amp;485] okMZ la0&amp;17 ekS0 U;knjxat fclkgMk jksM dLck nknjh] tuin xkSrecq)uxj tks vc rd Jh iou dqekj iq= Lo0 egkohj çlkn fuok",
 "indexed": true
 }
 }

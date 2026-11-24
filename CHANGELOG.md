@@ -5,6 +5,38 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added (template fill fixes)
+
+- `new_from_template` copies the template's logo / photo files next to `save_as` (`assets_copied`) and
+  rewrites absolute / `..` image paths; `height_mm` / `extra_height_mm` change the page HEIGHT only (body
+  gets the difference, sign-off / last-line frames move, borders stretch); a different `width_mm` is an
+  error (template width is fixed). New `tools/template_assets.py`, `tools/template_resize.py`.
+- `fill_template_fields`: `remove=[names]|"decorative"` (+ `expand_header`), automatic body block fitting
+  (largest size, leading spread, last lines in the continuation frame, empty continuation frame deleted),
+  sign-off sized to the body (`signoff_ratio`), template last-line frames linked automatically.
+- `compare_to_reference`: `layout_family_match` / `layout_family_score`; hints no longer suggest
+  re-layout when only logo / page height differ. INSTRUCTIONS and BEST_PRACTICES: "trust the template".
+
+### Added
+
+- **Solver-based fitting** (`tools/_solve.py`): font size / leading found by bisection against Scribus'
+  own layout (about 6-10 layouts), with the press limits (font >= 5 pt, leading >= 1.05 x size).
+  `fit_text_to_frame` gains `leading_pt`, `leading_ratio`, `target_lines`, `mode_fit="leading"`.
+  Fixes `fit="fill"` above Scribus' 512 pt limit and the 5 pt collapse with bottom vertical alignment.
+- **`fill_template_fields` rewrite**: per-field options (`size`, `leading`, `target_lines`, `align`, `fit`,
+  `last_line_beside`), inline run markup (`{font=..,size=..}text{/}`, `bold`, `italic`, `color`), linked
+  frame chains are followed, and the call returns fields + warnings + verify + a preview image in one go.
+- **`analyze_reference_image`**: measures a photo / screenshot of a notice (borders, bands, line pitch ->
+  leading in pt, columns, colour) and returns a layout descriptor and a `layout_hint`.
+- **`find_templates(layout_hint=...)`**: ranking bonus for page shape within 10 %, size, colour, kind and
+  descriptor words, without touching the tag file.
+
+### Fixed
+
+- Kruti converter no longer raises on the letter U+0911 (it is written as U+0906 U+0949).
+
 ## [1.3.1] — 2026-05-06
 
 Timeline polish for alternating mode (`label_rows>=2`) and a quality-of-life

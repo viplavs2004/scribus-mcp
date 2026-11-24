@@ -23,6 +23,7 @@ from typing import Annotated, Any, Literal
 from pydantic import Field
 
 from scribus_mcp.tools._adlib import AD_LIB, MIN_PRESS_PT, build_rich_text
+from scribus_mcp.tools._solve import SOLVER_LIB, solve_params
 from scribus_mcp.tools._common import Mode, ServerCtx, clean_user_text, get_backend
 from scribus_mcp.tools.palette import resolve_color
 
@@ -403,46 +404,53 @@ _value['warnings'] = _AD_WARN
     @mcp.tool()
     async def fit_text_to_frame(
         name: str,
-        mode_fit: Literal["shrink", "fill"] = "shrink",
+        mode_fit: Literal["shrink", "fill", "leading", "none"] = "shrink",
         min_font_pt: float = 5.0,
         max_font_pt: float | None = None,
         no_wrap: bool = False,
+        leading_pt: float | None = None,
+        leading_ratio: float | None = None,
+        target_lines: int | None = None,
         mode: Mode = "auto",
     ) -> dict:
-        """Fit the text of an existing frame into the frame by changing font sizes only.
+        """Fit the text of an existing frame (or linked chain) into its frame by CALCULATION: it
+        searches font size and/or leading against Scribus' own layout (about 6-10 layouts), never
+        below ``min_font_pt`` (>= 5 pt) and never with leading below 1.05 x font size.
 
-        ``shrink`` lowers sizes until nothing overflows; ``fill`` also raises them to the
-        largest size that fits (``max_font_pt`` caps). Relative sizes of mixed-size text are
-        kept. Also switches the frame to automatic leading. ``no_wrap`` keeps every paragraph
-        on one line. Never goes below ``min_font_pt`` (>= 5).
+        ``mode_fit``: ``shrink`` lowers sizes until nothing overflows; ``fill`` finds the largest
+        size that fits (``max_font_pt`` caps, hard limit 512); ``leading`` keeps the sizes and
+        finds the largest leading that fits (up to 1.6 x); ``none`` only applies the leading
+        options. ``leading_pt`` fixes the leading (the font then follows: size <= leading / 1.05);
+        ``leading_ratio`` sets leading = ratio x size (default: the frame's own ratio when its
+        leading is fixed, else automatic). ``target_lines=N`` finds the largest size whose text
+        needs at most N lines and then spreads the leading so the lines span the frame height
+        (a 17-line justified notice body is one call). ``no_wrap`` keeps every paragraph on one
+        line. Relative sizes of mixed-size text are kept. Works with vertical alignment bottom
+        / middle. Returns size_pt, leading_pt, lines, overflow, tries and notes.
         """
         backend = await get_backend(ctx, mode)
-        script = AD_LIB + f"""
+        script = AD_LIB + SOLVER_LIB + f"""
 import scribus as _s
 _f = {name!r}
-_n = _s.getTextLength(_f)
-_spans = []
-_i = 0
-while _i < _n:
-    _s.selectText(_i, 1, _f)
-    _sz = _s.getFontSize(_f)
-    _j = _i + 1
-    while _j < _n:
-        _s.selectText(_j, 1, _f)
-        if abs(_s.getFontSize(_f) - _sz) > 0.01:
-            break
-        _j += 1
-    _spans.append({{'start': _i, 'len': _j - _i, 'size': _sz}})
-    _i = _j
-_s.selectText(0, 0, _f)
-_s.setLineSpacingMode(1, _f)
-_text = _s.getAllText(_f)
+_chain = _sv_chain(_f)
+_spans = _sv_spans_of(_f)
+_lm = _s.getLineSpacingMode(_f)
+_ls = _s.getLineSpacing(_f)
 _maxsz = max([_sp['size'] for _sp in _spans] or [10.0])
-_cap = {max_font_pt if max_font_pt else 'None'}
-_ms = (_cap / _maxsz) if (_cap and {mode_fit!r} == 'fill') else 6.0
-_scale = _ad_fit(_f, _spans, {mode_fit!r}, {max(MIN_PRESS_PT, min_font_pt)}, _ms, {no_wrap!r}, _text.count(chr(10)) + 1)
-_value = {{"name": _f, "font_scale": round(_scale, 3), "overflows": _ad_overflow(_f),
-          "lines": _ad_lines(_f), "max_font_pt": round(_maxsz * _scale, 2)}}
+_P = {solve_params([name], [], fit=mode_fit, min_pt=min_font_pt, max_pt=max_font_pt,
+                   leading_pt=leading_pt, leading_ratio=leading_ratio, target_lines=target_lines)!r}
+_P['chain'] = _chain
+_P['spans'] = _spans
+if _P['ratio'] is None and _P['lead'] is None and _lm == 0 and _maxsz > 0:
+    _P['ratio'] = max(_P['min_ratio'], min(1.3, _ls / _maxsz))
+if {no_wrap!r}:
+    _t = _s.getAllText(_f)
+    _P['target_lines'] = max(1, _t.count(chr(10)) + _t.count(chr(13)) + 1)
+_r = _sv_solve(_P)
+_r['name'] = _f
+_r['chain'] = _chain
+_r['warnings'] = _AD_WARN
+_value = _r
 """
         res = await backend.script(script, result_expr="_value")
         if not res.ok:

@@ -12,12 +12,14 @@ from __future__ import annotations
 
 import gzip
 import os
-import shutil
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from scribus_mcp.tools._common import Mode, ServerCtx, get_backend
+from scribus_mcp.tools.template_assets import copy_template_assets
+from scribus_mcp.tools.template_resize import resize_sla_height
+from scribus_mcp.tools.template_sla import sla_info
 
 
 def template_dirs(scribus_bin: str | None) -> list[Path]:
@@ -119,15 +121,24 @@ def register(mcp, ctx: ServerCtx) -> None:
         return {"ok": True, "count": len(out), "categories": cats, "templates": out, "error": None}
 
     @mcp.tool()
-    async def new_from_template(template: str, save_as: str, mode: Mode = "auto") -> dict:
+    async def new_from_template(template: str, save_as: str, mode: Mode = "auto",
+                                height_mm: float | None = None, extra_height_mm: float | None = None,
+                                width_mm: float | None = None) -> dict:
         """Create a new document from a template: copies the template to ``save_as`` (a .sla
-        path) and opens the copy, so the original template is never modified.
+        path) and opens the copy, so the original template is never modified. The template's
+        logo / photo files are copied next to ``save_as`` (see ``assets_copied``).
 
         ``template`` is the ``id`` or (part of) the ``name`` from ``list_templates``. Returns the
         page size and every text frame with its current text and geometry, so you can replace
         the placeholder text with ``set_text`` / ``set_text_hindi`` and then ``verify_document``.
         ``editable_fields`` lists every text frame with its role (headline, offer, contact, logo
         slot ...), current text, font and char budget; fill them with ``fill_template_fields``.
+
+        WIDTH IS FIXED (newspaper column width): ``width_mm`` is accepted only if it equals the
+        template width (within 0.5 mm), otherwise an error. HEIGHT may change: ``height_mm`` = new
+        page height, or ``extra_height_mm`` = difference (negative = shorter). The top stays; the
+        body frame gets the difference, everything below it (sign-off, last-line frame) moves,
+        borders stretch. Single-page templates, one main body frame.
         """
         items = scan_templates(template_dirs(ctx.config.scribus_bin))
         t = next((x for x in items if x["id"].lower() == template.lower()), None)
@@ -138,13 +149,29 @@ def register(mcp, ctx: ServerCtx) -> None:
         dst = Path(save_as)
         if dst.suffix.lower() != ".sla":
             return {"ok": False, "error": "save_as must end in .sla"}
-        dst.parent.mkdir(parents=True, exist_ok=True)
         src = Path(t["file"])
         if src.suffix == ".gz":
-            with gzip.open(src, "rb") as fin, open(dst, "wb") as fout:
-                shutil.copyfileobj(fin, fout)
+            with gzip.open(src, "rb") as fh:
+                raw = fh.read()
         else:
-            shutil.copyfile(src, dst)
+            raw = src.read_bytes()
+        text = raw.decode("utf-8")
+        info = sla_info(src)
+        if width_mm is not None and info.get("ok") and abs(float(width_mm) - info["w_mm"]) > 0.5:
+            return {"ok": False, "error": (
+                f"the width of this template is fixed at {info['w_mm']} mm (the column width); "
+                f"{width_mm} mm is not possible. Change only the height (height_mm / "
+                "extra_height_mm) or pick another template with find_templates.")}
+        resized = None
+        if height_mm is not None or extra_height_mm is not None:
+            try:
+                text, resized = resize_sla_height(text, height_mm=height_mm,
+                                                  extra_height_mm=extra_height_mm)
+            except ValueError as exc:
+                return {"ok": False, "error": f"height change not possible: {exc}"}
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        text, assets = copy_template_assets(text, src, dst, t.get("preview"))
+        dst.write_bytes(text.encode("utf-8"))
         backend = await get_backend(ctx, mode)
         body = f"""
 import scribus as _s
@@ -171,5 +198,13 @@ _value = {{'pages': _s.pageCount(), 'page_w_mm': round(_pw * _u, 1), 'page_h_mm'
             return {"ok": False, "error": res.error}
         from scribus_mcp.tools.template_fields import describe_open_document
         fields = await describe_open_document(backend)  # editable_fields, decorative, instructions
-        return {"ok": True, "template": t["name"], "document": str(dst), **(res.value or {}),
-                **fields, "usage": t["usage"], "error": None}
+        out = {"ok": True, "template": t["name"], "document": str(dst), **(res.value or {}),
+               **fields, "usage": t["usage"], "assets_copied": assets["copied"], "error": None}
+        if assets["rewritten"]:
+            out["assets_rewritten"] = assets["rewritten"]
+        if assets["missing"]:
+            out["assets_missing"] = assets["missing"]
+        if resized:
+            out["height_change"] = resized
+        out["warnings"] = assets["warnings"] + ((resized or {}).get("warnings") or [])
+        return out

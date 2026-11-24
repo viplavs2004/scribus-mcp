@@ -357,9 +357,21 @@ _value = {{'path': {path!r}, 'exists': os.path.exists({path!r}), 'size': os.path
         the PNG there. Look at the picture and compare it with the brief before finishing.
         """
         backend = await get_backend(ctx, mode)
-        out = Path(path) if path else ctx.config.workdir / "preview.png"
-        body = f"""\
-import scribus as _s
+        data, size, err = await render_page_png(ctx, backend, dpi, page_number, path)
+        if data is None:
+            return [TextContent(type="text", text=err or "Render failed")]
+        return [
+            TextContent(type="text", text=f"Page {page_number} at {dpi} dpi ({size[0]}x{size[1]} px)"),
+            ImageContent(
+                type="image", data=base64.b64encode(data).decode("ascii"), mimeType="image/png"
+            ),
+        ]
+
+
+async def render_page_png(ctx, backend, dpi: int, page_number: int = 1, path: str = ""):
+    """Render one page to PNG bytes. Returns ``(png bytes | None, (w, h) px, error | None)``."""
+    out = Path(path) if path else ctx.config.workdir / "preview.png"
+    body = f"""import scribus as _s
 _s.gotoPage({int(page_number)})
 _e = _s.ImageExport()
 _e.type = 'PNG'
@@ -370,39 +382,33 @@ _pw, _ph = _s.getPageSize()
 _k = _s.pointsToDocUnit(1.0)  # page size comes in document units (mm for most templates)
 _value = [_pw / _k, _ph / _k]
 """
-        res = await backend.script(body, result_expr="_value")
-        if not res.ok or not out.exists():
-            return [TextContent(type="text", text=f"Render failed: {res.error or 'no file'}")]
-        try:
-            from io import BytesIO
+    res = await backend.script(body, result_expr="_value")
+    if not res.ok or not out.exists():
+        return None, (0, 0), f"Render failed: {res.error or 'no file'}"
+    try:
+        from io import BytesIO
 
-            from PIL import Image
+        from PIL import Image
 
-            pw_pt, ph_pt = res.value
-            img = Image.open(out)
-            box = (0, 0, round(pw_pt / 72 * dpi), round(ph_pt / 72 * dpi))
-            # ImageExport may render at a different scale than asked (then the image already is
-            # the page); only crop when the canvas is oversized (aspect ratio differs).
-            if abs(img.width / img.height - box[2] / box[3]) > 0.01:
-                img = img.crop(box)
-            box = (0, 0, img.width, img.height)
-            if path:
-                img.save(out)
-            buf = BytesIO()
-            img.save(buf, format="PNG", optimize=True)
-            data = buf.getvalue()
-        except Exception as exc:  # pragma: no cover
-            return [TextContent(type="text", text=f"Render post-processing failed: {exc}")]
-        finally:
-            if not path:
-                with contextlib.suppress(OSError):
-                    out.unlink()
-        return [
-            TextContent(type="text", text=f"Page {page_number} at {dpi} dpi ({box[2]}x{box[3]} px)"),
-            ImageContent(
-                type="image", data=base64.b64encode(data).decode("ascii"), mimeType="image/png"
-            ),
-        ]
+        pw_pt, ph_pt = res.value
+        img = Image.open(out)
+        box = (0, 0, round(pw_pt / 72 * dpi), round(ph_pt / 72 * dpi))
+        # ImageExport may render at a different scale than asked (then the image already is
+        # the page); only crop when the canvas is oversized (aspect ratio differs).
+        if abs(img.width / img.height - box[2] / box[3]) > 0.01:
+            img = img.crop(box)
+        size = (img.width, img.height)
+        if path:
+            img.save(out)
+        buf = BytesIO()
+        img.save(buf, format="PNG", optimize=True)
+        return buf.getvalue(), size, None
+    except Exception as exc:  # pragma: no cover
+        return None, (0, 0), f"Render post-processing failed: {exc}"
+    finally:
+        if not path:
+            with contextlib.suppress(OSError):
+                out.unlink()
 
 
 __all__ = ["looks_like_kruti", "summarize"]

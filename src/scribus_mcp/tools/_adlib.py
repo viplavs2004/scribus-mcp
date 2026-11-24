@@ -80,6 +80,10 @@ def build_rich_text(
                 span["stroke"] = r["stroke_color"]
             if r.get("h_scale"):
                 span["hscale"] = float(r["h_scale"])
+            if r.get("bold"):
+                span["bold"] = True
+            if r.get("italic"):
+                span["italic"] = True
             spans.append(span)
             out_text.append(ptext)
             pos += len(ptext)
@@ -123,9 +127,47 @@ def _ad_kfont():
             return _n
     return None
 
+_AD_FONTS = []
+
 def _ad_font_ok(_font):
+    return _ad_resolve_font(_font) is not None
+
+def _ad_resolve_font(_font):
     import scribus as __s
-    return _font in __s.getFontNames()
+    if not _AD_FONTS:
+        _AD_FONTS.extend(__s.getFontNames())
+    if _font in _AD_FONTS:
+        return _font
+    _low = _font.lower()
+    for _n in _AD_FONTS:
+        if _n.lower() == _low:
+            return _n
+    _cand = [_n for _n in _AD_FONTS if _n.lower().startswith(_low + ' ')]
+    for _n in _cand:
+        if _n.lower().endswith(' regular'):
+            return _n
+    return _cand[0] if _cand else None
+
+def _ad_style_font(_font, _bold, _italic):
+    _fam = _font
+    for _w in (' Bold Italic', ' Bold Oblique', ' Regular', ' Bold', ' Italic', ' Oblique'):
+        if _fam.endswith(_w):
+            _fam = _fam[:-len(_w)]
+            break
+    _want = []
+    if _bold and _italic:
+        _want = [' Bold Italic', ' Bold Oblique']
+    elif _bold:
+        _want = [' Bold']
+    elif _italic:
+        _want = [' Italic', ' Oblique']
+    for _w in _want:
+        _r = _ad_resolve_font(_fam + _w)
+        if _r:
+            return _r
+    if _want:
+        _AD_WARN.append('no ' + ('bold' if _bold else 'italic') + ' face for ' + _fam)
+    return _font
 
 def _ad_style(_f, _spans, _scale=1.0, _min=5.0, _body=True):
     import scribus as __s
@@ -139,9 +181,18 @@ def _ad_style(_f, _spans, _scale=1.0, _min=5.0, _body=True):
             _font = _k
             if _font is None and 'Kruti Dev 010 not installed' not in _AD_WARN:
                 _AD_WARN.append('Kruti Dev 010 not installed: Hindi will not display')
+        if _sp.get('bold') or _sp.get('italic'):
+            if not _font:
+                try:
+                    _font = __s.getFont(_f)
+                except Exception:
+                    _font = None
+            if _font:
+                _font = _ad_style_font(_font, _sp.get('bold'), _sp.get('italic'))
         if _font:
-            if _ad_font_ok(_font):
-                __s.setFont(_font, _f)
+            _rf = _ad_resolve_font(_font)
+            if _rf:
+                __s.setFont(_rf, _f)
             elif ('font not installed: ' + _font) not in _AD_WARN:
                 _AD_WARN.append('font not installed: ' + _font)
         _sz = max(_min, round(_sp['size'] * _scale * 4) / 4.0)
@@ -161,7 +212,9 @@ def _ad_overflow(_f):
     except Exception:
         pass
     try:
-        return bool(__s.textOverflows(_f))
+        if bool(__s.textOverflows(_f)):
+            return True
+        return __s.getTextLength(_f) > 0 and int(__s.getTextLines(_f)) == 0
     except Exception:
         return False
 
@@ -190,6 +243,23 @@ def _ad_fit(_f, _spans, _mode, _min, _max_scale, _no_wrap, _npar):
             return False
         return True
     _hi = _max_scale if _mode == 'fill' else 1.0
+    _top = max([_sp['size'] for _sp in _spans] or [10.0])
+    _hi = min(_hi, 512.0 / _top)
+    try:
+        import scribus as __s
+        _va = __s.getTextVerticalAlignment(_f)
+        __s.setTextVerticalAlignment(0, _f)
+    except Exception:
+        _va = None
+    _r = _ad_fit_search(_ok, _hi, _f, _spans, _min)
+    if _va is not None:
+        try:
+            __s.setTextVerticalAlignment(_va, _f)
+        except Exception:
+            pass
+    return _r
+
+def _ad_fit_search(_ok, _hi, _f, _spans, _min):
     if _ok(_hi):
         return _hi
     _lo = 0.05

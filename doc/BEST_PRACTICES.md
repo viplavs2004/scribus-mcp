@@ -55,6 +55,82 @@ agent driving the MCP fetches that prompt, it gets this file verbatim.
 
 Small models: start the server with `SCRIBUS_MCP_TOOLSET=ads` to see ~70 tools instead of ~190.
 
+## Fast template filling (notices and ads): photo -> PDF in the fewest calls
+
+Every tool call costs a human approval click, so the flow is built to need very few:
+
+```
+analyze_reference_image(image_path=..., width_mm=...)   # only when the user gave a photo / screenshot
+find_templates(requirement=..., layout_hint=<its layout_hint>)
+new_from_template(template=<id>, save_as="C:/work/x.sla", height_mm=<optional>)   # -> editable_fields
+fill_template_fields(fields={...}, remove=["decor_logo"], expand_header=true)      # ONE call
+export_press_pdf(path="C:/work/x.pdf")
+```
+
+**Trust the template.** After `find_templates` picks a template of the same type (notice for notice,
+same kind of ad), USE it. Do not pixel-analyse, re-measure or rebuild it. Differences in logo, divider
+lines or page height are normal: delete the logo with `fill_template_fields(remove=["decor_logo"])`
+(or `"decorative"` for every image frame; `expand_header=true` widens the header over the freed space),
+and set the page height with `new_from_template(height_mm=...)` or `extra_height_mm=...`. **The width of
+a template is fixed** (it is the column width the paper sells); a different `width_mm` is an error.
+`compare_to_reference` returns `layout_family_match`: when true, a low `similarity` only reflects
+logo / page height / text length, so keep the template.
+
+* `new_from_template` copies the template's logo / photo files next to `save_as` (`assets_copied`),
+  so `verify_document` finds them. A missing image is still reported unless its frame is removed.
+* `height_mm` / `extra_height_mm` (negative = shorter) grow or shrink the page from the bottom: the body
+  frame takes the difference, the sign-off / last-line frames move, borders stretch. Single-page
+  templates with one main body frame; the width never changes.
+* `analyze_reference_image` measures pixels (aspect ratio, border single/double and thickness, text
+  bands, line count and pitch, justified or not, columns, colour/b&w). With `width_mm` it also gives
+  `leading_pt` per band: use it as `leading` when filling. Its numbers are estimates (+-1-2 lines on
+  dense text, a photo with perspective is not straightened): compare with the picture.
+* `find_templates(layout_hint=...)` adds ranking points for a page shape within 10 % of the picture,
+  a size near its real size, colour / kind / descriptor words. Still pass `requirement`.
+* `fill_template_fields` returns fields applied (size, leading, lines), warnings, the verify result
+  and a preview PNG. Read the picture; only then fix and refill the fields that are wrong.
+
+**Fitting is calculated, not guessed.** Scribus' default leading is 15 pt, which overflows small
+boxes; do not tune it by hand. Use the per-field options instead:
+
+| want | field option |
+| --- | --- |
+| shrink until it fits (default) | `fit="shrink"` |
+| largest size that fits | `fit="fill"` (cap with `max_size`) |
+| text in exactly N lines, leading spread over the frame | `target_lines=N` |
+| fixed leading (the font follows: size <= leading / 1.05) | `leading=9.5` |
+| keep the size, solve the leading | `fit="leading"` |
+| justify / centre / right | `align="justify"` (the template's alignment is kept otherwise) |
+
+Limits that always apply: font >= 5 pt, leading >= 1.05 x font size. `fit_text_to_frame(name, ...)`
+offers the same options for an existing frame (`mode_fit`, `leading_pt`, `target_lines`, ...).
+
+**Mixed fonts in one line: run tags in the text, not character-range styling.**
+
+```
+{font=Arial Bold,size=9}-:{/} {font=Kruti Dev 010 Regular}सार्वजनिक सूचना{/} {font=Arial Bold}:-{/}
+```
+
+Options: `font=`, `size=`, `color=`, `bold`, `italic`, `scale=`; `{/}` closes the innermost run, runs nest,
+`{{` / `}}` are literal braces. Hindi inside any run is converted to Kruti Dev; the Latin runs keep
+the font you name. Write the letter ऑ as आ+ॉ (the converter also accepts ऑ).
+
+**Body block and sign-off are automatic.** The main body is fitted as a block with no options: largest
+size that fits (up to 1.25-1.5 x the template size), leading spread to fill the frame, last lines in the
+continuation frame beside the sign-off (a template's manual last-line frame is linked for you). If the
+text fits without the continuation frame, that empty frame is deleted and listed in `removed_frames`.
+The sign-off size follows the body (`signoff_ratio`, default 1.0, never < 5 pt or > 1.3 x body; an
+explicit `size` on the field wins). Giving `size`, `leading`, `target_lines` or `fit` other than
+`"fill"`, or `"auto_block": false`, switches the block fitting off for that field. A short text in a tall
+frame leaves blank space (the result warns): shorten the page with `height_mm`.
+
+**Last body line beside a signature block** (the newspaper sign-off): give the BODY field
+`last_line_beside="<signature frame>"`. The body frame is cut above the signature frame and a linked
+frame takes the rows to its left, so the last lines of the justified body sit beside the signature
+and no two frames overlap (`verify_document` stays quiet). A template's own manual "last line" frame
+inside that area is removed and reported in `removed_frames`. Use `fit="fill"` so the text is large
+enough to reach those rows. Do not fill the signature in the same box and do not split the body by hand.
+
 ## Composition: prefer patterns and layouts over primitives
 
 The MCP exposes both raw primitives (`create_text_frame`, `create_rectangle`)

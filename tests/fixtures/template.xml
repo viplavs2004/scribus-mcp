@@ -679,10 +679,10 @@
 		<img>news_gn_notice/news_gn_notice.png</img>
 		<psize>custom, 193x184</psize>
 		<color>CMYK, black only</color>
-		<descr>Public notice of the Greater Noida Authority, 6.8 x 6.5 cm, with border, logo, heading, justified body and signature. Hindi in Kruti Dev 010, English in Times New Roman.</descr>
-		<usage>Click into a text frame and change the text. Hindi must be typed with the Kruti Dev keyboard layout. Do not make the text smaller than 5 pt. Export with File, Export, Save as PDF (PDF/X-1a).</usage>
+		<descr>Public notice of the Greater Noida Authority, 68 x 65 mm (6.8 x 6.5 cm), black and white: single border, logo top left, authority name, address line, "Sarvajanik Soochna" title, one justified body paragraph and a right-aligned sign-off (2 to 3 lines). Frames are named for filling: header, address, title, body (linked to body_last_line, which sits beside the sign-off), signoff; decor_logo and outer_border are decoration. No overlapping frames. Hindi in Kruti Dev 010, English in Times New Roman.</descr>
+		<usage>With the MCP fill tool: fill_template_fields({header, address, title, signoff: {text, align: right}, body: {text, align: justify, fit: fill}}) in one call. For a short body (about 300 characters) add target_lines 6 to body so the text spreads over the area; for a refill pass target_lines equal to the line count the first call reported. Do not fill body_last_line (it is the continuation of body) and do not pass last_line_beside (the layout already has it). By hand: click into a text frame and change the text; Hindi must be typed with the Kruti Dev keyboard layout. Do not make the text smaller than 5 pt. Export with File, Export, Save as PDF (PDF/X-1a).</usage>
 		<scribus_version>1.7.4.svn</scribus_version>
-		<date>2026-10-24</date>
+		<date>2026-10-29</date>
 		<author>Scribus AI agent</author>
 		<email></email>
 	</template>
@@ -1244,6 +1244,20 @@
 		<scribus_version>1.7.4.svn</scribus_version>
 		<date>2026-10-25</date>
 		<author>Scribus AI agent</author>
+		<email></email>
+	</template>
+	<template category="viplav-advt">
+		<name>Municipal public notice, 63 x 66 mm (Hindi, B/W, double border)</name>
+		<file>news_bw_notice_nagar_palika_63x66/news_bw_notice_nagar_palika_63x66.sla.gz</file>
+		<tnail>news_bw_notice_nagar_palika_63x66/news_bw_notice_nagar_palika_63x66tn.png</tnail>
+		<img>news_bw_notice_nagar_palika_63x66/news_bw_notice_nagar_palika_63x66.png</img>
+		<psize>custom, 63.4x66 mm</psize>
+		<color>CMYK, black only</color>
+		<descr>Black-and-white public notice of a municipal body (Nagar Palika Parishad), 63.4 x 66 mm, text only: double-line border, centred office heading, reference-number and date line, 'public notice' title, one long justified Hindi paragraph (house mutation / name transfer objection notice) and a right-aligned signature block (executive officer, office, district). No logo or image. Hindi text in Kruti Dev 010. Uses Black and White only.</descr>
+		<usage>Click into a text frame and replace the placeholder text. Frames are named header, reference, title, body, body_last_line (the last line of the paragraph, beside the signature) and signoff. Hindi must be typed with the Kruti Dev keyboard layout. Nothing is smaller than 5 pt; keep it that way. Black and White only: keep it that way for B/W pages. Export with File, Export, Save as PDF (PDF/X-1a or X-3).</usage>
+		<scribus_version>1.7.4.svn</scribus_version>
+		<date>2026-10-28</date>
+		<author>Designed with Scribus MCP (Antigravity)</author>
 		<email></email>
 	</template>
 </templates>
